@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflow & Code | DATE vs TIMESTAMP Comparison</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+      <a href="../index.html" class="brand-badge">
+        <span class="portal-logo-sq">DB</span>
+        <span>Technical Documentation Portal</span>
+      </a>
+      <span class="brand-divider">/</span>
+      <a href="../index.html" class="hub-back-btn">
+        <span>← Enterprise Documentation Hub</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn" title="Open original PDF in a new tab">
+        <span>📄 View PDF ↗</span>
+      </a>
+      <button class="search-trigger-btn">
+        <span>🔍 Search guide...</span>
+        <span class="kbd-shortcut">/</span>
+      </button>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <span>🌓</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<div class="subnav-bar">
+  <div class="subnav-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Hub Home</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html">DATE vs TIMESTAMP Comparison</a>
+      <span class="crumb-sep">/</span>
+      <span style="color:var(--text-main);font-weight:600;">Workflow & Code</span>
+    </nav>
+    <div class="doc-meta-tags">
+      <span class="meta-tag tag-orange">STORAGE & DATATYPES</span>
+      <span class="meta-tag tag-slate">6 min read</span>
+      <span class="meta-tag tag-slate">2 Pages</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="layout-container">
+  
+<aside class="sidebar">
+  <div class="sidebar-heading">Navigation Modes</div>
+  <ul class="nav-tree">
+    
+<li class="nav-item">
+  <a href="index.html" class="nav-link">
+    <span><span class="nav-icon">📖</span>Comprehensive Guide</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="architecture.html" class="nav-link">
+    <span><span class="nav-icon">🏗️</span>Architecture & Data</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="workflow.html" class="nav-link active">
+    <span><span class="nav-icon">⚙️</span>Workflow & Code</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="reference.html" class="nav-link">
+    <span><span class="nav-icon">📊</span>Reference & Matrices</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="faq.html" class="nav-link">
+    <span><span class="nav-icon">❓</span>FAQs & Best Practices</span>
+  </a>
+</li>
+  </ul>
+  
+  <div class="sidebar-pdf-card">
+    <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;margin-bottom:6px;">Original Document</div>
+    <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-pdf-btn">
+      <span>📄 Open PDF in New Tab ↗</span>
+    </a>
+  </div>
+  <div class="sidebar-heading" style="margin-top:24px;">Source Traceability</div>
+  <div style="font-size:12px;color:var(--text-light);padding:0 8px;line-height:1.5;">
+    <div><strong>Source:</strong> Oracle_DATE_vs_TIMESTAMP_Comparison-v2.pdf</div>
+    <div><strong>Author:</strong> Subrata Sarkar</div>
+    <div><strong>Status:</strong> Architecture Guide</div>
+    <div><strong>Confidentiality:</strong> Technical Reference</div>
+  </div>
+</aside>
+
+
+  <main class="main-content">
+    <article class="content-article">
+      <div class="doc-hero">
+        <div class="doc-badge-row">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="doc-category-badge">STORAGE & DATATYPES</span>
+            <span style="font-size:12px;color:var(--text-light);">• Implementation Playbook</span>
+          </div>
+          <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+            <span>📄 View Original PDF ↗</span>
+          </a>
+        </div>
+        <h1>Workflow, Procedural Execution & Code Patterns</h1>
+        <p class="doc-tagline">Step-by-step implementation blueprints, production-tested PL/SQL code patterns, and configuration commands.</p>
+      </div>
+
+      <div class="doc-tabs"><a href="index.html" class="doc-tab">Comprehensive Guide</a><a href="architecture.html" class="doc-tab">Architecture & Data</a><a href="workflow.html" class="doc-tab active">Workflow & Implementation</a><a href="reference.html" class="doc-tab">Reference & Decision Matrices</a><a href="faq.html" class="doc-tab">FAQs & Diagnostics</a></div>
+
+      <section>
+        <h2 class="section-heading">⚙️ Production Implementation Blueprints</h2>
+        <p>Follow the procedural flows below to deploy the exact patterns established in <code>Oracle_DATE_vs_TIMESTAMP_Comparison-v2.pdf</code>. Use the copy button on code blocks to export syntax into your deployment scripts.</p>
+
+        <p><strong>ORACLE DATATYPE SPECIFICATIONS</strong></p>
+<h2 id="date-vs-timestamp-technical-comparison" class="section-heading"><strong>DATE vs. TIMESTAMP Technical Comparison</strong></h2>
+<p>Precision • Time Zone Variants • Byte Storage • Arithmetic Operations</p>
+<p>In Oracle Database, both <code>DATE</code> and <code>TIMESTAMP</code> datatypes store date and time information, but they differ significantly in sub-second precision, time zone handling, internal byte footprint, and result types from datetime arithmetic.</p>
+<h2 id="1-technical-comparison-matrix" class="section-heading"><strong>1. Technical Comparison Matrix</strong></h2>
+<div class="table-responsive"><table>
+<thead><tr>
+<th><strong>FEATURE</strong></th>
+<th><strong>DATE</strong></th>
+<th><strong>TIMESTAMP</strong></th>
+<th><strong>TIMESTAMP WITH TIME</strong> <strong>ZONE</strong></th>
+<th><strong>TIMESTAMP</strong> <strong>WITH LOCAL</strong> <strong>TIME ZONE</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Precision</strong></td>
+<td>Whole Seconds (1 sec)</td>
+<td>Fractional Seconds (0–9<br/>digits)</td>
+<td>Fractional Seconds (0–9<br/>digits)</td>
+<td>Fractional<br/>Seconds (0–9<br/>digits)</td>
+</tr>
+<tr>
+<td><strong>Default Scale</strong></td>
+<td>Fixed (Seconds)</td>
+<td><code>TIMESTAMP(6)</code><br/>(microseconds)</td>
+<td><code>TIMESTAMP(6)</code></td>
+<td><code>TIMESTAMP(6)</code></td>
+</tr>
+<tr>
+<td><strong>Time Zone Aware</strong></td>
+<td><strong>NO</strong></td>
+<td><strong>NO</strong></td>
+<td><strong>YES</strong> (Stores Offset/Region)</td>
+<td><strong>YES</strong><br/>(Normalized to<br/>DB Zone)</td>
+</tr>
+<tr>
+<td><strong>Storage Size</strong></td>
+<td>Fixed<strong>7 Bytes</strong></td>
+<td><strong>7 to 11 Bytes</strong></td>
+<td>Fixed<strong>13 Bytes</strong></td>
+<td><strong>7 to 11 Bytes</strong></td>
+</tr>
+<tr>
+<td><strong>Primary Use Case</strong></td>
+<td>Standard dates without<br/>sub-seconds (e.g., DOB,<br/>Order Date)</td>
+<td>High-precision tracing,<br/>benchmarking, execution<br/>logs</td>
+<td>Global audit trails with strict<br/>original timezone records</td>
+<td>Multi-region<br/>localized user<br/>interfaces<br/>(auto-converted<br/>to session)</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-key-architectural-differences" class="section-heading"><strong>2. Key Architectural Differences</strong></h2>
+<h3 id="a-fractional-second-precision" class="subsection-heading"><strong>A. Fractional Second Precision</strong></h3>
+<p><code>DATE</code> stores Century, Year, Month, Day, Hour, Minute, and Second. It cannot store sub-second fractions. <code>TIMESTAMP</code> supports precision up to 9 decimal places (nanoseconds), declared as <code>TIMESTAMP(p)</code> where <code>p</code> defaults to 6.</p>
+<p>> <em><code>-- Converting fractional timestamp to DATE rounds to nearest whole second</code></em> <strong><code>SELECT CAST</code></strong> <code>(SYSTIMESTAMP</code> <strong><code>AS</code></strong> <code>DATE)</code> <strong><code>FROM</code></strong> <code>DUAL;</code></p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">-- SYSTIMESTAMP returns fractional seconds with time zone displacement
+SELECT SYSTIMESTAMP FROM DUAL; -- Output: 2026-07-21 19:45:02.123456 -04:00</code></pre>
+</div>
+<p>Oracle Database Architecture Reference Guide</p>
+<h3 id="b-time-zone-handling-variants" class="subsection-heading"><strong>B. Time Zone Handling Variants</strong></h3>
+<p>Neither <code>DATE</code> nor standard <code>TIMESTAMP</code> record time zone context. Oracle provides two explicit time-zone aware variants:</p>
+<ul>
+<li><strong>TIMESTAMP WITH TIME ZONE (TSTZ):</strong> Preserves explicit displacement offset (e.g., <code>-05:00</code> ) or region name (e.g., <code>America/New_York</code> ). Essential for global transaction auditing.</li>
+</ul>
+<ul>
+<li><strong>TIMESTAMP WITH LOCAL TIME ZONE (TSLTZ):</strong> Normalizes data to the database time zone upon storage (without saving offset). When queried, automatically converts and renders in the requesting user's session time zone.</li>
+</ul>
+<h3 id="c-internal-byte-storage-layout" class="subsection-heading"><strong>C. Internal Byte Storage Layout</strong></h3>
+<ul>
+<li><strong>DATE:</strong> Always fixed at <strong>7 bytes</strong> (Century, Year, Month, Day, Hour, Minute, Second).</li>
+</ul>
+<ul>
+<li><strong>TIMESTAMP(0):</strong> Consumes <strong>7 bytes</strong> .</li>
+</ul>
+<p>-</p>
+<ul>
+<li><strong>TIMESTAMP(1..9):</strong> Consumes <strong>11 bytes</strong> (7 bytes base datetime + 4 bytes fractional seconds).</li>
+</ul>
+<p>-</p>
+<ul>
+<li><strong>TIMESTAMP WITH TIME ZONE:</strong> Fixed at <strong>13 bytes</strong> (11 bytes datetime + 2 bytes zone offset/region).</li>
+</ul>
+<h3 id="d-datetime-arithmetic-behavior" class="subsection-heading"><strong>D. Datetime Arithmetic Behavior</strong></h3>
+<p>The datatype resulting from subtraction depends on whether you are using <code>DATE</code> or <code>TIMESTAMP</code> :</p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">-- DATE Subtraction yields a numeric value representing difference in DAYS
+SELECT (SYSDATE - (SYSDATE - 1/24)) * 24 AS hours_diff FROM DUAL; -- Returns: 1</code></pre>
+</div>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">-- TIMESTAMP Subtraction yields an INTERVAL DAY TO SECOND structure
+SELECT SYSTIMESTAMP - (SYSTIMESTAMP - INTERVAL&#x27;1&#x27; HOUR) AS interval_diff FROM DUAL;
+-- Returns: +000000000 01:00:00.000000000</code></pre>
+</div>
+<h3 id="best-practices-selection-criteria" class="subsection-heading"><strong>Best Practices & Selection Criteria</strong></h3>
+<ul>
+<li><strong>Default to</strong> <strong><code>DATE</code> :</strong> For standard business entities (e.g., <code>HIRE<em>DATE</code> , <code>EFFECTIVE</em>DATE</code> , <code>INVOICE_DATE</code> ) where sub-second accuracy is unnecessary and byte efficiency is desired.</li>
+</ul>
+<ul>
+<li><strong>Select</strong> <strong><code>TIMESTAMP</code> :</strong> For event-driven processing, API request tracing, or performance benchmarking requiring microsecond or nanosecond resolution.</li>
+</ul>
+<ul>
+<li><strong>Select Time-Zone Variants:</strong> For global enterprise architectures spanning multiple geographical regions to guarantee unambiguous cross-timezone timeline alignment.</li>
+</ul>
+<p>Oracle Database Architecture Reference Guide</p>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="architecture.html" class="foot-btn">
+          <span class="foot-sub">Previous</span>
+          <span class="foot-title">← Architecture & Data</span>
+        </a>
+        <a href="reference.html" class="foot-btn" style="text-align:right;">
+          <span class="foot-sub">Next Topic</span>
+          <span class="foot-title">Reference & Matrices →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+</div>
+
+
+<div class="search-modal" id="search-modal">
+  <div class="search-dialog">
+    <div class="search-bar-wrap">
+      <span>🔍</span>
+      <input type="text" class="search-input" id="modal-search-input" placeholder="Search this guide by keyword, code, or topic...">
+      <button class="kbd-shortcut" onclick="document.getElementById('search-modal').classList.remove('open')">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script src="js/search-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

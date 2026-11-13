@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference & Matrices | AWR Interpretation Guide</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+      <a href="../index.html" class="brand-badge">
+        <span class="portal-logo-sq">DB</span>
+        <span>Technical Documentation Portal</span>
+      </a>
+      <span class="brand-divider">/</span>
+      <a href="../index.html" class="hub-back-btn">
+        <span>← Enterprise Documentation Hub</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <a href="Oracle_AWR_Interpretation_Guide.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn" title="Open original PDF in a new tab">
+        <span>📄 View PDF ↗</span>
+      </a>
+      <button class="search-trigger-btn">
+        <span>🔍 Search guide...</span>
+        <span class="kbd-shortcut">/</span>
+      </button>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <span>🌓</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<div class="subnav-bar">
+  <div class="subnav-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Hub Home</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html">AWR Interpretation Guide</a>
+      <span class="crumb-sep">/</span>
+      <span style="color:var(--text-main);font-weight:600;">Reference & Matrices</span>
+    </nav>
+    <div class="doc-meta-tags">
+      <span class="meta-tag tag-orange">DIAGNOSTICS & TUNING</span>
+      <span class="meta-tag tag-slate">9 min read</span>
+      <span class="meta-tag tag-slate">3 Pages</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="layout-container">
+  
+<aside class="sidebar">
+  <div class="sidebar-heading">Navigation Modes</div>
+  <ul class="nav-tree">
+    
+<li class="nav-item">
+  <a href="index.html" class="nav-link">
+    <span><span class="nav-icon">📖</span>Comprehensive Guide</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="architecture.html" class="nav-link">
+    <span><span class="nav-icon">🏗️</span>Architecture & Data</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="workflow.html" class="nav-link">
+    <span><span class="nav-icon">⚙️</span>Workflow & Code</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="reference.html" class="nav-link active">
+    <span><span class="nav-icon">📊</span>Reference & Matrices</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="faq.html" class="nav-link">
+    <span><span class="nav-icon">❓</span>FAQs & Best Practices</span>
+  </a>
+</li>
+  </ul>
+  
+  <div class="sidebar-pdf-card">
+    <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;margin-bottom:6px;">Original Document</div>
+    <a href="Oracle_AWR_Interpretation_Guide.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-pdf-btn">
+      <span>📄 Open PDF in New Tab ↗</span>
+    </a>
+  </div>
+  <div class="sidebar-heading" style="margin-top:24px;">Source Traceability</div>
+  <div style="font-size:12px;color:var(--text-light);padding:0 8px;line-height:1.5;">
+    <div><strong>Source:</strong> Oracle_AWR_Interpretation_Guide.pdf</div>
+    <div><strong>Author:</strong> Subrata Sarkar</div>
+    <div><strong>Status:</strong> Diagnostic Playbook</div>
+    <div><strong>Confidentiality:</strong> Standard Enterprise</div>
+  </div>
+</aside>
+
+
+  <main class="main-content">
+    <article class="content-article">
+      <div class="doc-hero">
+        <div class="doc-badge-row">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="doc-category-badge">DIAGNOSTICS & TUNING</span>
+            <span style="font-size:12px;color:var(--text-light);">• Quick Reference Matrix</span>
+          </div>
+          <a href="Oracle_AWR_Interpretation_Guide.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+            <span>📄 View Original PDF ↗</span>
+          </a>
+        </div>
+        <h1>Technical Reference, Decision Matrices & Parameters</h1>
+        <p class="doc-tagline">Structured evaluation tables, comparison matrices, configuration thresholds, and performance red flags.</p>
+      </div>
+
+      <div class="doc-tabs"><a href="index.html" class="doc-tab">Comprehensive Guide</a><a href="architecture.html" class="doc-tab">Architecture & Data</a><a href="workflow.html" class="doc-tab">Workflow & Implementation</a><a href="reference.html" class="doc-tab active">Reference & Decision Matrices</a><a href="faq.html" class="doc-tab">FAQs & Diagnostics</a></div>
+
+      <section>
+        <h2 class="section-heading">📊 Decision Matrices & Technical Specifications</h2>
+        <p>Comprehensive reference tables extracted directly from the authoritative source document without simplification.</p>
+
+        <h2 id="oracle-awr-interpretation-guide" class="section-heading"><strong>Oracle AWR Interpretation Guide</strong></h2>
+<p>A Top-Down Diagnostic Approach for Database Performance Tuning</p>
+<p>Interpretation of an Oracle Automatic Workload Repository (AWR) report requires a top-down methodology. Start at the system overview level, identify the primary bottleneck (CPU vs. Wait Events), and follow that thread directly to the responsible SQL IDs or system components.</p>
+<h2 id="1-context-overhead-header-load-profile" class="section-heading"><strong>1. Context & Overhead (Header & Load Profile)</strong></h2>
+<p>Before analyzing specific wait events, verify snapshot context and overall database load.</p>
+<ul>
+<li><strong>Snapshot Window:</strong> The ideal snapshot window is <strong>30 to 60 minutes</strong> covering the target problem period. Avoid multi-hour snapshots as they average out performance spikes and obscure short-duration bottlenecks.</li>
+</ul>
+<p><strong>Average Active Sessions (AAS):</strong> Calculate AAS to quantify database concurrency relative to capacity:</p>
+<p><strong>Average Active Sessions (AAS) = DB Time / Elapsed Time</strong></p>
+<ul>
+<li><strong>AAS < CPU Cores:</strong> The system had spare processing capacity. Bottlenecks are likely localized to specific sessions or locking scenarios.</li>
+</ul>
+<ul>
+<li><strong>AAS > CPU Cores:</strong> The database was resource-saturated during the snapshot window.</li>
+</ul>
+<p>-</p>
+<h3 id="key-load-profile-metrics" class="subsection-heading"><strong>Key Load Profile Metrics:</strong></h3>
+<ul>
+<li><strong>Hard Parses / sec:</strong> Values consistently exceeding <strong>100/sec</strong> indicate un-bound SQL statements causing CPU overhead and library cache latch contention.</li>
+</ul>
+<ul>
+<li><strong>Logical vs. Physical Reads:</strong> Extremely high logical reads relative to physical reads indicate queries thrashing the buffer cache and consuming excess CPU.</li>
+</ul>
+<h2 id="2-top-timed-foreground-events" class="section-heading"><strong>2. Top Timed Foreground Events</strong></h2>
+<p>The <strong>Top 5/10 Timed Events</strong> section pinpoints where the database spent the greatest proportion of <code>DB Time</code> .</p>
+<p>Oracle AWR Interpretation Guide</p>
+<div class="table-responsive"><table>
+<thead><tr>
+<th><strong>WAIT EVENT / CATEGORY</strong></th>
+<th><strong>PRIMARY CAUSE</strong></th>
+<th><strong>COMMON RESOLUTION</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><strong><code>db file sequential read</code></strong></td>
+<td>Single-block disk reads (typically<br/>index lookups followed by table<br/>access).</td>
+<td>Fix stale statistics causing bad index choices, or<br/>convert high-volume index lookups to hash joins.</td>
+</tr>
+<tr>
+<td><strong><code>db file scattered read</code></strong></td>
+<td>Multi-block disk reads (Full Table<br/>Scans or Index Fast Full Scans).</td>
+<td>Add missing indexes, fix unindexed joins, or<br/>update stale optimizer statistics.</td>
+</tr>
+<tr>
+<td><strong><code>log file sync</code></strong></td>
+<td>Sessions waiting for LGWR to flush<br/>the redo log buffer on<br/><code>COMMIT</code> .</td>
+<td>Eliminate frequent commits inside loops, reduce<br/>storage I/O latency on redo logs, or size log files<br/>appropriately.</td>
+</tr>
+<tr>
+<td><strong><code>latch: cache buffers</code></strong><br/><strong><code>chains</code></strong></td>
+<td>Severe contention on buffer cache<br/>hash chains.</td>
+<td>Address "hot blocks" accessed concurrently<br/>(e.g., heavily hit lookup tables or index branch<br/>blocks).</td>
+</tr>
+<tr>
+<td><strong><code>enq: TX - row lock</code></strong><br/><strong><code>contention</code></strong></td>
+<td>Sessions waiting on row-level locks<br/>held by active transactions.</td>
+<td>Resolve application lock logic, index unindexed<br/>foreign keys, or shorten transaction durations.</td>
+</tr>
+<tr>
+<td><strong><code>CPU time</code> /</strong><br/><strong><code>resmgr:cpu</code></strong><br/><strong><code>quantum</code></strong></td>
+<td>High CPU consumption without active<br/>thread waiting.</td>
+<td>Tune inefficient SQL execution plans, reduce<br/>buffer gets, eliminate hard parsing, or adjust<br/>Resource Manager limits.</td>
+</tr>
+<tr>
+<td><strong><code>direct path read /</code></strong></td>
+<td>Direct I/O bypassing the SGA (PGA/</td>
+<td>Tune disk-based sorts/hash joins spilling to</td>
+</tr>
+<tr>
+<td><strong><code>write</code></strong></td>
+<td>Temp operations or direct loads).</td>
+<td><code>TEMP</code> , or optimize parallel execution settings.</td>
+</tr>
+</tbody></table></div>
+<h2 id="3-sql-statistics-section" class="section-heading"><strong>3. SQL Statistics Section</strong></h2>
+<p>Map the identified wait event or resource bottleneck directly to offending SQL statements using these subsections:</p>
+<ul>
+<li><strong>SQL ordered by Elapsed Time:</strong> Pinpoint statements consuming the highest overall execution time. Compare total <code>Executions</code> vs. <code>Elapsed Time per Exec (s)</code> .</li>
+</ul>
+<ul>
+<li><strong>SQL ordered by CPU Time:</strong> Identify statements consuming high CPU resources (algorithmic complexity, memory sorts, or high buffer gets).</li>
+</ul>
+<ul>
+<li><strong>SQL ordered by Gets (Buffer Gets):</strong> Find queries driving excessive buffer cache churn.</li>
+</ul>
+<p>-</p>
+<ul>
+<li><strong>SQL ordered by Reads (Physical Reads):</strong> Locate queries bypassing cache and driving storage I/O.</li>
+</ul>
+<p>-</p>
+<ul>
+<li><strong>SQL ordered by Parse Calls:</strong> Identify statements incurring excessive soft or hard parse overhead.</li>
+</ul>
+<p>-</p>
+<h2 id="4-memory-io-advisories" class="section-heading"><strong>4. Memory & I/O Advisories</strong></h2>
+<p>If SQL tuning does not resolve performance issues, evaluate database memory and storage subsystem health:</p>
+<ul>
+<li><strong>Buffer Pool Advisory:</strong> Evaluates expected physical read reductions if <code>db<em>cache</em>size</code> is increased.</li>
+</ul>
+<p>-</p>
+<ul>
+<li><strong>PGA Aggregate Target Advisory:</strong> Shows whether increasing <code>pga<em>aggregate</em>target</code> will keep large sorts and hash joins in memory rather than spilling to <code>TEMP</code> .</li>
+</ul>
+<ul>
+<li><strong>Tablespace / File I/O Statistics:</strong> Check <code>Avg Read(ms)</code> per data file. Latencies consistently above <strong>10–15 ms</strong> indicate storage subsystem bottlenecks.</li>
+</ul>
+<p>Oracle AWR Interpretation Guide</p>
+<h2 id="5-diagnostic-workflow-summary" class="section-heading"><strong>5. Diagnostic Workflow Summary</strong></h2>
+<ul>
+<li><strong>1</strong><sup><strong>Calculate AAS:</strong>Determine overall load relative to available CPU cores using</sup> <code>DB Time / Elapsed Time</code> .</li>
+</ul>
+<ul>
+<li><strong>2</strong><sup><strong>Analyze Top Timed Events:</strong>Categorize primary system wait profile as either</sup><sup><em>I/O / Wait Bound</em>or</sup><sup><em>CPU / Parse</em></sup> <em>Bound</em> .</li>
+</ul>
+<ul>
+<li><strong>3</strong><sup><strong>Map to SQL Statistics:</strong>Match wait categories to corresponding SQL sections (Reads, CPU, Buffer Gets, or Parse</sup> Calls) to extract top target <code>SQL_ID</code> s .</li>
+</ul>
+<ul>
+<li><strong>4</strong><sup><strong>Fetch Historical Execution Plan:</strong>Retrieve execution details for offending queries directly from AWR memory</sup> repository.</li>
+</ul>
+<p>To pull the exact execution plan used during the AWR window for a target SQL ID:</p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_AWR(&#x27;your_sql_id_here&#x27;));</code></pre>
+</div>
+<h3 id="-key-takeaway" class="subsection-heading"><strong><code>💡</code> Key Takeaway</strong></h3>
+<p>Always correlate system-level wait events with specific SQL IDs before making database parameter or infrastructure changes. Tuning the top 2-3 SQL statements identified in AWR frequently resolves 80%+ of total system contention.</p>
+<p>Oracle AWR Interpretation Guide</p>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="workflow.html" class="foot-btn">
+          <span class="foot-sub">Previous</span>
+          <span class="foot-title">← Workflow & Code</span>
+        </a>
+        <a href="faq.html" class="foot-btn" style="text-align:right;">
+          <span class="foot-sub">Next Topic</span>
+          <span class="foot-title">FAQs & Diagnostics →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+</div>
+
+
+<div class="search-modal" id="search-modal">
+  <div class="search-dialog">
+    <div class="search-bar-wrap">
+      <span>🔍</span>
+      <input type="text" class="search-input" id="modal-search-input" placeholder="Search this guide by keyword, code, or topic...">
+      <button class="kbd-shortcut" onclick="document.getElementById('search-modal').classList.remove('open')">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script src="js/search-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

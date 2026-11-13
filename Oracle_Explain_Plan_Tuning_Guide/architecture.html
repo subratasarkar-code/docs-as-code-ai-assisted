@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture & Data | Explain Plan Tuning Guide</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+      <a href="../index.html" class="brand-badge">
+        <span class="portal-logo-sq">DB</span>
+        <span>Technical Documentation Portal</span>
+      </a>
+      <span class="brand-divider">/</span>
+      <a href="../index.html" class="hub-back-btn">
+        <span>← Enterprise Documentation Hub</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <a href="Oracle_Explain_Plan_Tuning_Guide.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn" title="Open original PDF in a new tab">
+        <span>📄 View PDF ↗</span>
+      </a>
+      <button class="search-trigger-btn">
+        <span>🔍 Search guide...</span>
+        <span class="kbd-shortcut">/</span>
+      </button>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <span>🌓</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<div class="subnav-bar">
+  <div class="subnav-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Hub Home</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html">Explain Plan Tuning Guide</a>
+      <span class="crumb-sep">/</span>
+      <span style="color:var(--text-main);font-weight:600;">Architecture & Data</span>
+    </nav>
+    <div class="doc-meta-tags">
+      <span class="meta-tag tag-orange">DIAGNOSTICS & TUNING</span>
+      <span class="meta-tag tag-slate">8 min read</span>
+      <span class="meta-tag tag-slate">3 Pages</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="layout-container">
+  
+<aside class="sidebar">
+  <div class="sidebar-heading">Navigation Modes</div>
+  <ul class="nav-tree">
+    
+<li class="nav-item">
+  <a href="index.html" class="nav-link">
+    <span><span class="nav-icon">📖</span>Comprehensive Guide</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="architecture.html" class="nav-link active">
+    <span><span class="nav-icon">🏗️</span>Architecture & Data</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="workflow.html" class="nav-link">
+    <span><span class="nav-icon">⚙️</span>Workflow & Code</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="reference.html" class="nav-link">
+    <span><span class="nav-icon">📊</span>Reference & Matrices</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="faq.html" class="nav-link">
+    <span><span class="nav-icon">❓</span>FAQs & Best Practices</span>
+  </a>
+</li>
+  </ul>
+  
+  <div class="sidebar-pdf-card">
+    <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;margin-bottom:6px;">Original Document</div>
+    <a href="Oracle_Explain_Plan_Tuning_Guide.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-pdf-btn">
+      <span>📄 Open PDF in New Tab ↗</span>
+    </a>
+  </div>
+  <div class="sidebar-heading" style="margin-top:24px;">Source Traceability</div>
+  <div style="font-size:12px;color:var(--text-light);padding:0 8px;line-height:1.5;">
+    <div><strong>Source:</strong> Oracle_Explain_Plan_Tuning_Guide.pdf</div>
+    <div><strong>Author:</strong> Subrata Sarkar</div>
+    <div><strong>Status:</strong> Tuning Guide</div>
+    <div><strong>Confidentiality:</strong> Standard Enterprise</div>
+  </div>
+</aside>
+
+
+  <main class="main-content">
+    <article class="content-article">
+      <div class="doc-hero">
+        <div class="doc-badge-row">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="doc-category-badge">DIAGNOSTICS & TUNING</span>
+            <span style="font-size:12px;color:var(--text-light);">• Architecture Deep Dive</span>
+          </div>
+          <a href="Oracle_Explain_Plan_Tuning_Guide.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+            <span>📄 View Original PDF ↗</span>
+          </a>
+        </div>
+        <h1>System Architecture & Data Engineering</h1>
+        <p class="doc-tagline">Structural patterns, memory boundaries, schema design, and runtime interaction flows for Explain Plan Tuning Guide.</p>
+      </div>
+
+      <div class="doc-tabs"><a href="index.html" class="doc-tab">Comprehensive Guide</a><a href="architecture.html" class="doc-tab active">Architecture & Data</a><a href="workflow.html" class="doc-tab">Workflow & Implementation</a><a href="reference.html" class="doc-tab">Reference & Decision Matrices</a><a href="faq.html" class="doc-tab">FAQs & Diagnostics</a></div>
+
+      <section>
+        <h2 class="section-heading">🏗️ Architectural Vectors & Framework</h2>
+        <p>This technical area focuses on the underlying data models, storage mechanics, and infrastructure dependencies defined in <code>Oracle_Explain_Plan_Tuning_Guide.pdf</code>.</p>
+        
+        <div class="callout callout-info">
+          <div class="callout-title">Architecture Scope</div>
+          <div>All components are engineered to maximize throughput while minimizing host memory exhaustion and thread contention. Co-location with database engines eliminates data transit over external network boundaries.</div>
+        </div>
+
+        <h2 id="oracle-explain-plan-tuning-guide" class="section-heading"><strong>Oracle Explain Plan Tuning Guide</strong></h2>
+<p>A Practical Reference for Reading Execution Plans and Pinpointing Bottlenecks</p>
+<p>Reading an Oracle Explain Plan can feel overwhelming because it presents a tree structure flattened into a table. The secret to effective tuning lies in understanding the exact <strong>execution order</strong> and recognizing key <strong>performance red flags</strong> .</p>
+<h2 id="1-how-to-read-execution-order" class="section-heading"><strong>1. How to Read Execution Order</strong></h2>
+<p>Oracle plans process operations from <strong>inside to outside</strong> and <strong>top to bottom</strong> .</p>
+<ul>
+<li><strong>Parent-Child Rule:</strong> A parent step cannot complete until all of its child steps return data.</li>
+</ul>
+<p>-</p>
+<ul>
+<li><strong>Sibling Rule:</strong> Among steps at the same indentation level, the top child executes first.</li>
+</ul>
+<p>-</p>
+<h3 id="step-1-find-the-deepest-indented-step" class="subsection-heading"><strong>Step 1: Find the deepest indented step</strong></h3>
+<p>Look down the <code>Operation</code> column and find the row pushed furthest to the right. That is your starting execution point.</p>
+<h3 id="step-2-execute-siblings-top-to-bottom" class="subsection-heading"><strong>Step 2: Execute siblings top-to-bottom</strong></h3>
+<p>If multiple steps share the exact same indentation under a parent, the top sibling runs first, passes its results up, and then the next sibling runs.</p>
+<h3 id="step-3-bubble-up-to-the-parent" class="subsection-heading"><strong>Step 3: Bubble up to the parent</strong></h3>
+<p>Once children finish, the parent step processes their output (e.g., joining two child datasets together) and passes the result up to its own parent.</p>
+<h2 id="2-key-plan-columns" class="section-heading"><strong>2. Key Plan Columns</strong></h2>
+<p>When inspecting standard <code>DBMS_XPLAN</code> output, prioritize these critical columns:</p>
+<div class="table-responsive"><table>
+<thead><tr>
+<th><strong>COLUMN</strong></th>
+<th><strong>WHAT IT MEANS</strong></th>
+<th><strong>WHAT TO WATCH FOR</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><strong><code>Id</code></strong></td>
+<td>Step identifier</td>
+<td>Indicates the parent-child hierarchy via visual<br/>indentation.</td>
+</tr>
+<tr>
+<td><strong><code>Operation</code></strong></td>
+<td>Specific action performed</td>
+<td>Scans, joins, sorts, and filter predicates.</td>
+</tr>
+<tr>
+<td><strong><code>Rows</code> (E-Rows)</strong></td>
+<td>Estimated row count</td>
+<td>Look for massive mismatches between estimated<br/>rows and actual returned rows.</td>
+</tr>
+<tr>
+<td><strong><code>Cost (%CPU)</code></strong></td>
+<td>Estimated resource effort</td>
+<td>Higher relative numbers point to where Oracle<br/>expects to spend work.</td>
+</tr>
+<tr>
+<td><strong><code>Pstart / Pstop</code></strong></td>
+<td>Partition range accessed</td>
+<td>Verifies whether partition pruning is occurring (<br/><code>KEY</code> /<br/>numbers vs.<br/><code>ALL</code> ).</td>
+</tr>
+</tbody></table></div>
+<p>Oracle Performance Tuning Guide</p>
+<h2 id="3-performance-red-flags" class="section-heading"><strong>3. Performance Red Flags</strong></h2>
+<p>When investigating slow queries, inspect the plan for these four common performance bottlenecks:</p>
+<h3 id="-1-table-access-full-on-large-tables" class="subsection-heading"><strong><code>🚩</code> 1. TABLE ACCESS FULL on Large Tables</strong></h3>
+<p><strong>What it means:</strong> Oracle reads every single block of the table from disk or buffer cache.</p>
+<p><strong>Fix:</strong> Verify if an index exists on the <code>WHERE</code> clause columns, or check why the optimizer is ignoring an index (e.g., functions wrapping columns such as <code>WHERE UPPER(name) = 'ALICE'</code> ) .</p>
+<h3 id="-2-cardinality-misestimates-the-silent-killer" class="subsection-heading"><strong><code>🚩</code> 2. Cardinality Misestimates (The Silent Killer)</strong></h3>
+<p><strong>What it means:</strong> The optimizer estimates 5 rows ( <code>E-Rows</code> ) , but the query actually processes 5,000,000 rows ( <code>ARows</code> ) . This causes Oracle to choose inefficient join methods (e.g., picking <code>NESTED LOOPS</code> instead of <code>HASH JOIN</code> ) .</p>
+<p><strong>Fix:</strong> Gather updated statistics on the table and columns:</p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">EXEC DBMS_STATS.GATHER_TABLE_STATS(&#x27;SCHEMA_NAME&#x27;, &#x27;TABLE_NAME&#x27;);</code></pre>
+</div>
+<h3 id="-3-merge-join-cartesian" class="subsection-heading"><strong><code>🚩</code> 3. MERGE JOIN CARTESIAN</strong></h3>
+<p><strong>What it means:</strong> Oracle is combining every row of Table A with every row of Table B without a join condition.</p>
+<p><strong>Fix:</strong> Ensure no join predicates are missing in your <code>WHERE</code> or <code>ON</code> clauses, or check for severely stale statistics.</p>
+<h3 id="-4-index-full-scan-vs-index-range-scan" class="subsection-heading"><strong><code>🚩</code> 4. INDEX FULL SCAN vs INDEX RANGE SCAN</strong></h3>
+<p><strong>Range Scan (Good):</strong> Oracle searches the index for specific keys or ranges.</p>
+<p><strong>Full Scan (Warning):</strong> Oracle reads the entire index tree sequentially because it cannot use index keys effectively or is avoiding a full table scan.</p>
+<h2 id="4-how-to-capture-real-execution-statistics" class="section-heading"><strong>4. How to Capture Real Execution Statistics</strong></h2>
+<p>Do not rely solely on <code>EXPLAIN PLAN FOR</code> because it displays estimated plan data before runtime. For reliable tuning, capture actual runtime statistics using <code>DBMS<em>XPLAN.DISPLAY</em>CURSOR</code> :</p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">-- Step 1: Execute query with the GATHER_PLAN_STATISTICS hint
+SELECT /*+ GATHER_PLAN_STATISTICS */ *
+FROM orders o
+JOIN customers c ON o.customer_id = c.id
+WHERE o.order_date &gt;= SYSDATE - 7;</code></pre>
+</div>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">-- Step 2: Fetch the actual plan with runtime statistics
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(FORMAT =&gt; &#x27;ALLSTATS LAST&#x27;));</code></pre>
+</div>
+<p>Oracle Performance Tuning Guide</p>
+<h3 id="-pro-tip" class="subsection-heading"><strong><code>💡</code> Pro Tip</strong></h3>
+<p>In <code>DISPLAY_CURSOR</code> output, directly compare <strong><code>E-Rows</code></strong> (Estimated Rows) against <strong><code>A-Rows</code></strong> (Actual Rows). A large disparity between these values is the single most common cause of suboptimal query plans in Oracle databases.</p>
+<p>Oracle Performance Tuning Guide</p>
+      </section>
+
+      
+<section style="margin-top:48px;" id="source-page-gallery">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+    <div>
+      <h2 class="section-heading" style="margin:0 0 6px 0;border:none;">
+        <span>🖼️</span>
+        <span>Original Source Document Visual Pages & Diagrams</span>
+      </h2>
+      <p style="margin:0;">High-resolution rendered visual pages from the authoritative source document (<code>Oracle_Explain_Plan_Tuning_Guide.pdf</code>). Click any page to inspect the original layout and diagrams.</p>
+    </div>
+    <a href="Oracle_Explain_Plan_Tuning_Guide.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+      <span>📄 Open Complete PDF (3 Pages) ↗</span>
+    </a>
+  </div>
+  <div class="page-gallery">
+    
+<div class="page-card">
+  <a href="images/page_1.png" target="_blank" title="Click to view Page 1 full resolution">
+    <div class="page-thumb-wrap">
+      <img src="images/page_1.png" alt="Page 1 of Explain Plan Tuning Guide" class="page-thumb" loading="lazy">
+    </div>
+    <div class="page-info-bar">
+      <span>Page 1 of 3</span>
+      <span style="color:var(--primary);">View Full Page ↗</span>
+    </div>
+  </a>
+</div>
+<div class="page-card">
+  <a href="images/page_2.png" target="_blank" title="Click to view Page 2 full resolution">
+    <div class="page-thumb-wrap">
+      <img src="images/page_2.png" alt="Page 2 of Explain Plan Tuning Guide" class="page-thumb" loading="lazy">
+    </div>
+    <div class="page-info-bar">
+      <span>Page 2 of 3</span>
+      <span style="color:var(--primary);">View Full Page ↗</span>
+    </div>
+  </a>
+</div>
+<div class="page-card">
+  <a href="images/page_3.png" target="_blank" title="Click to view Page 3 full resolution">
+    <div class="page-thumb-wrap">
+      <img src="images/page_3.png" alt="Page 3 of Explain Plan Tuning Guide" class="page-thumb" loading="lazy">
+    </div>
+    <div class="page-info-bar">
+      <span>Page 3 of 3</span>
+      <span style="color:var(--primary);">View Full Page ↗</span>
+    </div>
+  </a>
+</div>
+  </div>
+</section>
+
+      <div class="doc-footer-nav">
+        <a href="index.html" class="foot-btn">
+          <span class="foot-sub">Previous</span>
+          <span class="foot-title">← Comprehensive Guide</span>
+        </a>
+        <a href="workflow.html" class="foot-btn" style="text-align:right;">
+          <span class="foot-sub">Next Topic</span>
+          <span class="foot-title">Workflow & Implementation →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+</div>
+
+
+<div class="search-modal" id="search-modal">
+  <div class="search-dialog">
+    <div class="search-bar-wrap">
+      <span>🔍</span>
+      <input type="text" class="search-input" id="modal-search-input" placeholder="Search this guide by keyword, code, or topic...">
+      <button class="kbd-shortcut" onclick="document.getElementById('search-modal').classList.remove('open')">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script src="js/search-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture & Data | Efficient LOB Handling</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+      <a href="../index.html" class="brand-badge">
+        <span class="portal-logo-sq">DB</span>
+        <span>Technical Documentation Portal</span>
+      </a>
+      <span class="brand-divider">/</span>
+      <a href="../index.html" class="hub-back-btn">
+        <span>← Enterprise Documentation Hub</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <a href="Efficient_LOB_Handling_in_PLSQL.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn" title="Open original PDF in a new tab">
+        <span>📄 View PDF ↗</span>
+      </a>
+      <button class="search-trigger-btn">
+        <span>🔍 Search guide...</span>
+        <span class="kbd-shortcut">/</span>
+      </button>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <span>🌓</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<div class="subnav-bar">
+  <div class="subnav-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Hub Home</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html">Efficient LOB Handling</a>
+      <span class="crumb-sep">/</span>
+      <span style="color:var(--text-main);font-weight:600;">Architecture & Data</span>
+    </nav>
+    <div class="doc-meta-tags">
+      <span class="meta-tag tag-orange">PL/SQL PERFORMANCE</span>
+      <span class="meta-tag tag-slate">8 min read</span>
+      <span class="meta-tag tag-slate">3 Pages</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="layout-container">
+  
+<aside class="sidebar">
+  <div class="sidebar-heading">Navigation Modes</div>
+  <ul class="nav-tree">
+    
+<li class="nav-item">
+  <a href="index.html" class="nav-link">
+    <span><span class="nav-icon">📖</span>Comprehensive Guide</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="architecture.html" class="nav-link active">
+    <span><span class="nav-icon">🏗️</span>Architecture & Data</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="workflow.html" class="nav-link">
+    <span><span class="nav-icon">⚙️</span>Workflow & Code</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="reference.html" class="nav-link">
+    <span><span class="nav-icon">📊</span>Reference & Matrices</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="faq.html" class="nav-link">
+    <span><span class="nav-icon">❓</span>FAQs & Best Practices</span>
+  </a>
+</li>
+  </ul>
+  
+  <div class="sidebar-pdf-card">
+    <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;margin-bottom:6px;">Original Document</div>
+    <a href="Efficient_LOB_Handling_in_PLSQL.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-pdf-btn">
+      <span>📄 Open PDF in New Tab ↗</span>
+    </a>
+  </div>
+  <div class="sidebar-heading" style="margin-top:24px;">Source Traceability</div>
+  <div style="font-size:12px;color:var(--text-light);padding:0 8px;line-height:1.5;">
+    <div><strong>Source:</strong> Efficient_LOB_Handling_in_PLSQL.pdf</div>
+    <div><strong>Author:</strong> Subrata Sarkar</div>
+    <div><strong>Status:</strong> Technical Reference</div>
+    <div><strong>Confidentiality:</strong> Standard Enterprise</div>
+  </div>
+</aside>
+
+
+  <main class="main-content">
+    <article class="content-article">
+      <div class="doc-hero">
+        <div class="doc-badge-row">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="doc-category-badge">PL/SQL PERFORMANCE</span>
+            <span style="font-size:12px;color:var(--text-light);">• Architecture Deep Dive</span>
+          </div>
+          <a href="Efficient_LOB_Handling_in_PLSQL.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+            <span>📄 View Original PDF ↗</span>
+          </a>
+        </div>
+        <h1>System Architecture & Data Engineering</h1>
+        <p class="doc-tagline">Structural patterns, memory boundaries, schema design, and runtime interaction flows for Efficient LOB Handling.</p>
+      </div>
+
+      <div class="doc-tabs"><a href="index.html" class="doc-tab">Comprehensive Guide</a><a href="architecture.html" class="doc-tab active">Architecture & Data</a><a href="workflow.html" class="doc-tab">Workflow & Implementation</a><a href="reference.html" class="doc-tab">Reference & Decision Matrices</a><a href="faq.html" class="doc-tab">FAQs & Diagnostics</a></div>
+
+      <section>
+        <h2 class="section-heading">🏗️ Architectural Vectors & Framework</h2>
+        <p>This technical area focuses on the underlying data models, storage mechanics, and infrastructure dependencies defined in <code>Efficient_LOB_Handling_in_PLSQL.pdf</code>.</p>
+        
+        <div class="callout callout-info">
+          <div class="callout-title">Architecture Scope</div>
+          <div>All components are engineered to maximize throughput while minimizing host memory exhaustion and thread contention. Co-location with database engines eliminates data transit over external network boundaries.</div>
+        </div>
+
+        <p><strong>ORACLE DATABASE OPTIMIZATION GUIDE</strong></p>
+<h2 id="efficient-lob-handling-in-plsql" class="section-heading"><strong>Efficient LOB Handling in PL/SQL</strong></h2>
+<p>PGA Memory Management • Piecewise Processing • SecureFiles • Parameter Passing</p>
+<p>Efficiently managing Large Objects (CLOB, NCLOB, BLOB) in PL/SQL requires controlling <strong>PGA (Program Global Area) memory allocation</strong> , utilizing <strong>piecewise chunk operations</strong> , and preventing memory leaks caused by temporary LOB locators.</p>
+<h2 id="1-fast-reference-matrix" class="section-heading"><strong>1. Fast Reference Matrix</strong></h2>
+<div class="table-responsive"><table>
+<thead><tr>
+<th><strong>GOAL / SCENARIO</strong></th>
+<th><strong>RECOMMENDED APPROACH</strong></th>
+<th><strong>KEY PERFORMANCE ADVANTAGE</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Reading Large LOBs</strong></td>
+<td>Piecewise reading via<code>DBMS_LOB.READ</code></td>
+<td>Prevents PGA memory spikes by streaming data<br/>in controlled buffer chunks.</td>
+</tr>
+<tr>
+<td><strong>Building / Appending LOBs</strong></td>
+<td><code>DBMS_LOB.WRITEAPPEND</code>/<code>APPEND</code></td>
+<td>Up to 100x faster than string concatenation<br/>operators (<code>||</code>) inside loops.</td>
+</tr>
+<tr>
+<td><strong>Temporary LOB Cleanup</strong></td>
+<td><code>DBMS_LOB.FREETEMPORARY</code></td>
+<td>Eliminates severe PGA session memory leaks<br/>and temp tablespace bloat.</td>
+</tr>
+<tr>
+<td><strong>Subprogram Parameter</strong><br/><strong>Passing</strong></td>
+<td><code>IN OUT NOCOPY</code>hint</td>
+<td>Passes LOB locators by reference rather than<br/>creating expensive memory copies.</td>
+</tr>
+<tr>
+<td><strong>Physical Storage Strategy</strong></td>
+<td>SecureFiles over BasicFiles</td>
+<td>Enables inline storage, high-level compression,<br/>deduplication, and encryption.</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-high-performance-implementation-patterns" class="section-heading"><strong>2. High-Performance Implementation Patterns</strong></h2>
+<h3 id="technique-a-avoid-string-concatenation-operator-in-loops" class="subsection-heading"><strong>Technique A: Avoid String Concatenation Operator (||) in Loops</strong></h3>
+<p>Using <code>v<em>clob := v</em>clob || v<em>str</code> in loops causes Oracle to continually allocate and destroy intermediate temporary LOB locators. Use <code>DBMS</em>LOB.WRITEAPPEND</code> instead.</p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">DECLARE
+  v_clob  CLOB;
+  v_chunk VARCHAR2(32000) := &#x27;Data payload row content...&#x27; || CHR(10);
+BEGIN
+DBMS_LOB.CREATETEMPORARY(v_clob, TRUE, DBMS_LOB.CALL);
+FOR i IN 1 .. 100000 LOOP
+DBMS_LOB.WRITEAPPEND(
+      lob_loc =&gt; v_clob,
+      amount  =&gt; LENGTH(v_chunk),
+      buffer  =&gt; v_chunk
+    );
+END LOOP;
+DBMS_LOB.FREETEMPORARY(v_clob);
+END;
+/</code></pre>
+</div>
+<p>Oracle Database Performance Reference Guide</p>
+<h3 id="technique-b-chunked-piecewise-reading" class="subsection-heading"><strong>Technique B: Chunked / Piecewise Reading</strong></h3>
+<p>To process or stream multi-gigabyte LOBs (e.g., REST endpoints, socket streams), read the payload in 32 KB chunks rather than fetching the whole LOB into memory at once.</p>
+<h4 id="declare" class="tertiary-heading"><strong><code>DECLARE</code></strong></h4>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">  v_blob      BLOB;
+  v_amount    INTEGER := 32767;
+  v_offset    INTEGER := 1;
+  v_buffer    RAW(32767);
+  v_lob_len   INTEGER;
+BEGIN
+SELECT blob_content INTO v_blob
+FROM document_repository
+WHERE doc_id = 101;
+  v_lob_len := DBMS_LOB.GETLENGTH(v_blob);
+WHILE v_offset &lt;= v_lob_len LOOP
+DBMS_LOB.READ(
+      lob_loc =&gt; v_blob,
+      amount  =&gt; v_amount,
+      offset  =&gt; v_offset,
+      buffer  =&gt; v_buffer
+    );
+-- Process v_buffer (e.g., stream chunk to HTTP client)
+    v_offset := v_offset + v_amount;
+END LOOP;
+END;
+/</code></pre>
+</div>
+<h3 id="technique-c-parameter-passing-via-nocopy" class="subsection-heading"><strong>Technique C: Parameter Passing via NOCOPY</strong></h3>
+<p>By default, <code>IN OUT</code> parameters pass by value, creating deep copies of LOB locators. Use <code>IN OUT NOCOPY</code> to pass by reference for zero memory overhead.</p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">PROCEDURE process_payload (
+  p_clob IN OUT NOCOPYCLOB
+) IS
+BEGIN
+DBMS_LOB.WRITEAPPEND(p_clob, 11, &#x27;HEADER_END;&#x27;);
+END process_payload;</code></pre>
+</div>
+<h2 id="3-physical-storage-level-optimization-securefiles" class="section-heading"><strong>3. Physical Storage Level Optimization (SecureFiles)</strong></h2>
+<p>Ensure tables with LOB columns use SecureFiles storage parameters to maximize compression, deduplication, and row-level storage efficiency:</p>
+<p>Oracle Database Performance Reference Guide</p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">CREATE TABLE document_repository (
+    doc_id       NUMBER PRIMARY KEY,
+    doc_name     VARCHAR2(200),
+    blob_content BLOB
+)
+LOB (blob_content) STORE AS SECUREFILE (
+ENABLE STORAGE IN ROW-- Small LOBs (&lt; 4KB) stored inline in table block
+COMPRESS HIGH-- Reduces I/O and storage footprint
+DEDUPLICATE-- Eliminates duplicate LOB payloads across rows
+CACHE-- Retains LOB blocks in buffer cache for frequent reads
+);</code></pre>
+</div>
+<p><strong>Key Rules for Production Systems</strong></p>
+<ul>
+<li><strong>Always call FREETEMPORARY:</strong> Include <code>DBMS_LOB.FREETEMPORARY</code> in both normal execution paths and <code>EXCEPTION</code> handlers.</li>
+</ul>
+<ul>
+<li><strong>Use CALL Duration:</strong> Initialize temporary LOBs with <code>DBMS_LOB.CALL</code> duration so memory is released automatically upon call completion.</li>
+</ul>
+<ul>
+<li><strong>Enable Storage in Row:</strong> Keep <code>ENABLE STORAGE IN ROW</code> active so LOBs under 4 KB avoid extra disk round-trips to LOB segments.</li>
+</ul>
+<p>Oracle Database Performance Reference Guide</p>
+      </section>
+
+      
+<section style="margin-top:48px;" id="source-page-gallery">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+    <div>
+      <h2 class="section-heading" style="margin:0 0 6px 0;border:none;">
+        <span>🖼️</span>
+        <span>Original Source Document Visual Pages & Diagrams</span>
+      </h2>
+      <p style="margin:0;">High-resolution rendered visual pages from the authoritative source document (<code>Efficient_LOB_Handling_in_PLSQL.pdf</code>). Click any page to inspect the original layout and diagrams.</p>
+    </div>
+    <a href="Efficient_LOB_Handling_in_PLSQL.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+      <span>📄 Open Complete PDF (3 Pages) ↗</span>
+    </a>
+  </div>
+  <div class="page-gallery">
+    
+<div class="page-card">
+  <a href="images/page_1.png" target="_blank" title="Click to view Page 1 full resolution">
+    <div class="page-thumb-wrap">
+      <img src="images/page_1.png" alt="Page 1 of Efficient LOB Handling" class="page-thumb" loading="lazy">
+    </div>
+    <div class="page-info-bar">
+      <span>Page 1 of 3</span>
+      <span style="color:var(--primary);">View Full Page ↗</span>
+    </div>
+  </a>
+</div>
+<div class="page-card">
+  <a href="images/page_2.png" target="_blank" title="Click to view Page 2 full resolution">
+    <div class="page-thumb-wrap">
+      <img src="images/page_2.png" alt="Page 2 of Efficient LOB Handling" class="page-thumb" loading="lazy">
+    </div>
+    <div class="page-info-bar">
+      <span>Page 2 of 3</span>
+      <span style="color:var(--primary);">View Full Page ↗</span>
+    </div>
+  </a>
+</div>
+<div class="page-card">
+  <a href="images/page_3.png" target="_blank" title="Click to view Page 3 full resolution">
+    <div class="page-thumb-wrap">
+      <img src="images/page_3.png" alt="Page 3 of Efficient LOB Handling" class="page-thumb" loading="lazy">
+    </div>
+    <div class="page-info-bar">
+      <span>Page 3 of 3</span>
+      <span style="color:var(--primary);">View Full Page ↗</span>
+    </div>
+  </a>
+</div>
+  </div>
+</section>
+
+      <div class="doc-footer-nav">
+        <a href="index.html" class="foot-btn">
+          <span class="foot-sub">Previous</span>
+          <span class="foot-title">← Comprehensive Guide</span>
+        </a>
+        <a href="workflow.html" class="foot-btn" style="text-align:right;">
+          <span class="foot-sub">Next Topic</span>
+          <span class="foot-title">Workflow & Implementation →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+</div>
+
+
+<div class="search-modal" id="search-modal">
+  <div class="search-dialog">
+    <div class="search-bar-wrap">
+      <span>🔍</span>
+      <input type="text" class="search-input" id="modal-search-input" placeholder="Search this guide by keyword, code, or topic...">
+      <button class="kbd-shortcut" onclick="document.getElementById('search-modal').classList.remove('open')">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script src="js/search-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

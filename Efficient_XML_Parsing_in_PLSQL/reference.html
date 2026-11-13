@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference & Matrices | Efficient XML Parsing</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+      <a href="../index.html" class="brand-badge">
+        <span class="portal-logo-sq">DB</span>
+        <span>Technical Documentation Portal</span>
+      </a>
+      <span class="brand-divider">/</span>
+      <a href="../index.html" class="hub-back-btn">
+        <span>← Enterprise Documentation Hub</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <a href="Efficient_XML_Parsing_in_PLSQL.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn" title="Open original PDF in a new tab">
+        <span>📄 View PDF ↗</span>
+      </a>
+      <button class="search-trigger-btn">
+        <span>🔍 Search guide...</span>
+        <span class="kbd-shortcut">/</span>
+      </button>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <span>🌓</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<div class="subnav-bar">
+  <div class="subnav-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Hub Home</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html">Efficient XML Parsing</a>
+      <span class="crumb-sep">/</span>
+      <span style="color:var(--text-main);font-weight:600;">Reference & Matrices</span>
+    </nav>
+    <div class="doc-meta-tags">
+      <span class="meta-tag tag-orange">PL/SQL PERFORMANCE</span>
+      <span class="meta-tag tag-slate">7 min read</span>
+      <span class="meta-tag tag-slate">3 Pages</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="layout-container">
+  
+<aside class="sidebar">
+  <div class="sidebar-heading">Navigation Modes</div>
+  <ul class="nav-tree">
+    
+<li class="nav-item">
+  <a href="index.html" class="nav-link">
+    <span><span class="nav-icon">📖</span>Comprehensive Guide</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="architecture.html" class="nav-link">
+    <span><span class="nav-icon">🏗️</span>Architecture & Data</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="workflow.html" class="nav-link">
+    <span><span class="nav-icon">⚙️</span>Workflow & Code</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="reference.html" class="nav-link active">
+    <span><span class="nav-icon">📊</span>Reference & Matrices</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="faq.html" class="nav-link">
+    <span><span class="nav-icon">❓</span>FAQs & Best Practices</span>
+  </a>
+</li>
+  </ul>
+  
+  <div class="sidebar-pdf-card">
+    <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;margin-bottom:6px;">Original Document</div>
+    <a href="Efficient_XML_Parsing_in_PLSQL.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-pdf-btn">
+      <span>📄 Open PDF in New Tab ↗</span>
+    </a>
+  </div>
+  <div class="sidebar-heading" style="margin-top:24px;">Source Traceability</div>
+  <div style="font-size:12px;color:var(--text-light);padding:0 8px;line-height:1.5;">
+    <div><strong>Source:</strong> Efficient_XML_Parsing_in_PLSQL.pdf</div>
+    <div><strong>Author:</strong> Subrata Sarkar</div>
+    <div><strong>Status:</strong> Technical Reference</div>
+    <div><strong>Confidentiality:</strong> Standard Enterprise</div>
+  </div>
+</aside>
+
+
+  <main class="main-content">
+    <article class="content-article">
+      <div class="doc-hero">
+        <div class="doc-badge-row">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="doc-category-badge">PL/SQL PERFORMANCE</span>
+            <span style="font-size:12px;color:var(--text-light);">• Quick Reference Matrix</span>
+          </div>
+          <a href="Efficient_XML_Parsing_in_PLSQL.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+            <span>📄 View Original PDF ↗</span>
+          </a>
+        </div>
+        <h1>Technical Reference, Decision Matrices & Parameters</h1>
+        <p class="doc-tagline">Structured evaluation tables, comparison matrices, configuration thresholds, and performance red flags.</p>
+      </div>
+
+      <div class="doc-tabs"><a href="index.html" class="doc-tab">Comprehensive Guide</a><a href="architecture.html" class="doc-tab">Architecture & Data</a><a href="workflow.html" class="doc-tab">Workflow & Implementation</a><a href="reference.html" class="doc-tab active">Reference & Decision Matrices</a><a href="faq.html" class="doc-tab">FAQs & Diagnostics</a></div>
+
+      <section>
+        <h2 class="section-heading">📊 Decision Matrices & Technical Specifications</h2>
+        <p>Comprehensive reference tables extracted directly from the authoritative source document without simplification.</p>
+
+        <p><strong>ORACLE DATABASE OPTIMIZATION GUIDE</strong></p>
+<h2 id="efficient-xml-parsing-in-plsql" class="section-heading"><strong>Efficient XML Parsing in PL/SQL</strong></h2>
+<p>Vectorized Processing • Binary XML • Streaming APIs • Memory Optimization</p>
+<p>In Oracle Database, efficient XML parsing relies on a core principle: <strong>avoid DOM-based memory-intensive parsing for large payloads and leverage SQL set-based streaming or pre-parsed Binary XML storage.</strong></p>
+<h2 id="1-fast-xml-processing-decision-matrix" class="section-heading"><strong>1. Fast XML Processing Decision Matrix</strong></h2>
+<div class="table-responsive"><table>
+<thead><tr>
+<th><strong>SCENARIO /</strong></th>
+<th><strong>RECOMMENDED APPROACH</strong></th>
+<th><strong>CORE ARCHITECTURAL ADVANTAGE</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><strong>REQUIREMENT</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bulk Direct Relational</strong><br/><strong>Loading</strong></td>
+<td><code>XMLTable</code>+<code>INSERT INTO ... SELECT</code></td>
+<td>Vectorized SQL engine processing; bypasses PL/<br/>SQL loop context switches.</td>
+</tr>
+<tr>
+<td><strong>Massive Files (> 10 MB -</strong></td>
+<td><code>DBMS_XMLSTORE</code>/ Streaming API</td>
+<td>Low PGA memory footprint; streams rows directly</td>
+</tr>
+<tr>
+<td><strong>GBs)</strong></td>
+<td></td>
+<td>without building DOM trees.</td>
+</tr>
+<tr>
+<td><strong>High-Frequency Stored</strong></td>
+<td>SecureFile<code>XMLType</code>as Binary XML</td>
+<td>Pre-parsed, tokenized on disk; fastest read/</td>
+</tr>
+<tr>
+<td><strong>XML</strong></td>
+<td></td>
+<td>indexing performance.</td>
+</tr>
+<tr>
+<td><strong>Single Element Extraction</strong></td>
+<td><code>XMLCast</code>+<code>XQuery</code></td>
+<td>Direct scalar conversion without intermediate<br/>DOM tree generation.</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-high-performance-implementation-techniques" class="section-heading"><strong>2. High-Performance Implementation Techniques</strong></h2>
+<h3 id="option-a-direct-sql-set-based-parsing-xmltable" class="subsection-heading"><strong>Option A: Direct SQL Set-Based Parsing (XMLTable)</strong></h3>
+<p>Avoid pulling XML into PL/SQL variables for row-by-row looping. Use <code>XMLTable</code> directly in SQL to allow the engine to apply vectorized evaluation.</p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">INSERT INTO target_table (order_id, customer_name, order_date)
+SELECT x.order_id, x.customer_name, TO_DATE(x.order_date, &#x27;YYYY-MM-DD&#x27;)
+FROM xml_repository r,
+XMLTABLE(&#x27;/Orders/Order&#x27;
+PASSING r.xml_content
+COLUMNS
+         order_id      NUMBERPATH&#x27;OrderId&#x27;,
+         customer_name VARCHAR2(100)PATH&#x27;CustomerName&#x27;,
+         order_date    VARCHAR2(10)PATH&#x27;OrderDate&#x27;
+     ) x
+WHERE r.id = 101;</code></pre>
+</div>
+<p>Oracle Database Performance Reference Guide</p>
+<h3 id="option-b-memory-optimized-streaming-dbmsxmlstore" class="subsection-heading"><strong>Option B: Memory-Optimized Streaming (DBMS_XMLSTORE)</strong></h3>
+<p>For multi-megabyte payloads, loading full XML into memory causes huge PGA memory spikes. <code>DBMS_XMLSTORE</code> streams directly to tables without generating a full DOM tree.</p>
+<h4 id="declare" class="tertiary-heading"><strong><code>DECLARE</code></strong></h4>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">  v_ins_ctx DBMS_XMLSTORE.ctxType;
+  v_rows    NUMBER;
+  v_xml     CLOB;
+BEGIN</code></pre>
+</div>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">SELECT xml_clob INTO v_xml FROM temp_xml_stage WHERE id = 1;</code></pre>
+</div>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">  v_ins_ctx := DBMS_XMLSTORE.newContext(&#x27;TARGET_TABLE&#x27;);
+DBMS_XMLSTORE.setRowTag(v_ins_ctx, &#x27;Order&#x27;);
+DBMS_XMLSTORE.setColumnList(v_ins_ctx, &#x27;ORDER_ID&#x27;);
+DBMS_XMLSTORE.setColumnList(v_ins_ctx, &#x27;CUSTOMER_NAME&#x27;);</code></pre>
+</div>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">  v_rows := DBMS_XMLSTORE.insertXML(v_ins_ctx, v_xml);
+DBMS_XMLSTORE.closeContext(v_ins_ctx);
+END;
+/</code></pre>
+</div>
+<h3 id="option-c-securefile-binary-xml-storage-layout" class="subsection-heading"><strong>Option C: SecureFile Binary XML Storage Layout</strong></h3>
+<p>If XML documents are stored persistently before parsing, use <strong>Binary XML</strong> to eliminate parse overhead during query execution.</p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">CREATE TABLE xml_repository (
+    id          NUMBER PRIMARY KEY,
+    xml_content XMLTYPE
+) XMLTYPE COLUMN xml_content STORE AS BINARY XML;</code></pre>
+</div>
+<h3 id="option-d-targeted-scalar-extraction-xmlcast-xquery" class="subsection-heading"><strong>Option D: Targeted Scalar Extraction (XMLCast + XQuery)</strong></h3>
+<p>To pull specific scalar attributes without full dataset decomposition, use <code>XMLCast</code> combined with <code>XQuery</code> .</p>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">DECLARE
+  v_xml       XMLTYPE;
+  v_cust_name VARCHAR2(100);
+BEGIN</code></pre>
+</div>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">  v_xml := XMLTYPE(&#x27;&lt;Order&gt;&lt;CustomerName&gt;Acme Corp&lt;/CustomerName&gt;&lt;/Order&gt;&#x27;);</code></pre>
+</div>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">SELECTXMLCAST(XMLQUERY(&#x27;/Order/CustomerName/text()&#x27;PASSING v_xml RETURNING CONTENT) AS
+VARCHAR2(100))
+INTO v_cust_name
+FROM DUAL;
+END;
+/</code></pre>
+</div>
+<p>Oracle Database Performance Reference Guide</p>
+<h3 id="key-architectural-guidelines" class="subsection-heading"><strong>Key Architectural Guidelines</strong></h3>
+<ul>
+<li><strong>Minimize DBMS_XMLDOM Usage:</strong> Avoid DOM parsers unless node-level dynamic modification is strictly necessary; DOM parsing typically incurs a 5x–10x PGA overhead relative to XML size.</li>
+</ul>
+<ul>
+<li><strong>Deprecate ExtractValue():</strong> Replace legacy functions ( <code>ExtractValue</code> , <code>Extract</code> ) with <code>XMLTable</code> or <code>XMLCast</code> for optimized internal execution paths.</li>
+</ul>
+<ul>
+<li><strong>Prevent PGA Leaks:</strong> When manipulating dynamic XMLs with temporary CLOBs, explicitly call <code>DBMS_LOB.freetemporary()</code> .</li>
+</ul>
+<p>Oracle Database Performance Reference Guide</p>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="workflow.html" class="foot-btn">
+          <span class="foot-sub">Previous</span>
+          <span class="foot-title">← Workflow & Code</span>
+        </a>
+        <a href="faq.html" class="foot-btn" style="text-align:right;">
+          <span class="foot-sub">Next Topic</span>
+          <span class="foot-title">FAQs & Diagnostics →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+</div>
+
+
+<div class="search-modal" id="search-modal">
+  <div class="search-dialog">
+    <div class="search-bar-wrap">
+      <span>🔍</span>
+      <input type="text" class="search-input" id="modal-search-input" placeholder="Search this guide by keyword, code, or topic...">
+      <button class="kbd-shortcut" onclick="document.getElementById('search-modal').classList.remove('open')">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script src="js/search-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs & Diagnostics | DATE vs TIMESTAMP Comparison</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+      <a href="../index.html" class="brand-badge">
+        <span class="portal-logo-sq">DB</span>
+        <span>Technical Documentation Portal</span>
+      </a>
+      <span class="brand-divider">/</span>
+      <a href="../index.html" class="hub-back-btn">
+        <span>← Enterprise Documentation Hub</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn" title="Open original PDF in a new tab">
+        <span>📄 View PDF ↗</span>
+      </a>
+      <button class="search-trigger-btn">
+        <span>🔍 Search guide...</span>
+        <span class="kbd-shortcut">/</span>
+      </button>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <span>🌓</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<div class="subnav-bar">
+  <div class="subnav-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Hub Home</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html">DATE vs TIMESTAMP Comparison</a>
+      <span class="crumb-sep">/</span>
+      <span style="color:var(--text-main);font-weight:600;">FAQs & Diagnostics</span>
+    </nav>
+    <div class="doc-meta-tags">
+      <span class="meta-tag tag-orange">STORAGE & DATATYPES</span>
+      <span class="meta-tag tag-slate">6 min read</span>
+      <span class="meta-tag tag-slate">2 Pages</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="layout-container">
+  
+<aside class="sidebar">
+  <div class="sidebar-heading">Navigation Modes</div>
+  <ul class="nav-tree">
+    
+<li class="nav-item">
+  <a href="index.html" class="nav-link">
+    <span><span class="nav-icon">📖</span>Comprehensive Guide</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="architecture.html" class="nav-link">
+    <span><span class="nav-icon">🏗️</span>Architecture & Data</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="workflow.html" class="nav-link">
+    <span><span class="nav-icon">⚙️</span>Workflow & Code</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="reference.html" class="nav-link">
+    <span><span class="nav-icon">📊</span>Reference & Matrices</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="faq.html" class="nav-link active">
+    <span><span class="nav-icon">❓</span>FAQs & Best Practices</span>
+  </a>
+</li>
+  </ul>
+  
+  <div class="sidebar-pdf-card">
+    <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;margin-bottom:6px;">Original Document</div>
+    <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-pdf-btn">
+      <span>📄 Open PDF in New Tab ↗</span>
+    </a>
+  </div>
+  <div class="sidebar-heading" style="margin-top:24px;">Source Traceability</div>
+  <div style="font-size:12px;color:var(--text-light);padding:0 8px;line-height:1.5;">
+    <div><strong>Source:</strong> Oracle_DATE_vs_TIMESTAMP_Comparison-v2.pdf</div>
+    <div><strong>Author:</strong> Subrata Sarkar</div>
+    <div><strong>Status:</strong> Architecture Guide</div>
+    <div><strong>Confidentiality:</strong> Technical Reference</div>
+  </div>
+</aside>
+
+
+  <main class="main-content">
+    <article class="content-article">
+      <div class="doc-hero">
+        <div class="doc-badge-row">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="doc-category-badge">STORAGE & DATATYPES</span>
+            <span style="font-size:12px;color:var(--text-light);">• Diagnostic Playbook</span>
+          </div>
+          <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+            <span>📄 View Original PDF ↗</span>
+          </a>
+        </div>
+        <h1>Frequently Asked Questions & Diagnostic Playbook</h1>
+        <p class="doc-tagline">Targeted solutions for common production pitfalls, memory issues, query tuning challenges, and edge cases.</p>
+      </div>
+
+      <div class="doc-tabs"><a href="index.html" class="doc-tab">Comprehensive Guide</a><a href="architecture.html" class="doc-tab">Architecture & Data</a><a href="workflow.html" class="doc-tab">Workflow & Implementation</a><a href="reference.html" class="doc-tab">Reference & Decision Matrices</a><a href="faq.html" class="doc-tab active">FAQs & Diagnostics</a></div>
+
+      <section>
+        <h2 class="section-heading">❓ Technical Q&A & Operational Insights</h2>
+        <div class="faq-list" style="margin-top:20px;">
+          
+<div class="faq-item open">
+  <button class="faq-header">
+    <span>What is the storage footprint difference between DATE and TIMESTAMP?</span>
+    <span class="faq-icon">▼</span>
+  </button>
+  <div class="faq-body">
+    <p>Standard DATE always consumes a fixed 7 bytes (Century, Year, Month, Day, Hour, Minute, Second). TIMESTAMP(0) also consumes 7 bytes, while TIMESTAMP(1..9) consumes 11 bytes (7 bytes datetime + 4 bytes fractional seconds). TIMESTAMP WITH TIME ZONE consumes a fixed 13 bytes.</p>
+  </div>
+</div>
+<div class="faq-item">
+  <button class="faq-header">
+    <span>Why does DATE subtraction differ from TIMESTAMP subtraction?</span>
+    <span class="faq-icon">▼</span>
+  </button>
+  <div class="faq-body">
+    <p>Subtracting two DATE values yields a numeric value representing the difference in DAYS (e.g. 0.5 = 12 hours). Subtracting two TIMESTAMP values yields an INTERVAL DAY TO SECOND structure (+00 01:00:00.000000).</p>
+  </div>
+</div>
+<div class="faq-item">
+  <button class="faq-header">
+    <span>When should TIMESTAMP WITH LOCAL TIME ZONE (TSLTZ) be preferred over TSTZ?</span>
+    <span class="faq-icon">▼</span>
+  </button>
+  <div class="faq-body">
+    <p>TSLTZ normalizes data to the database time zone upon storage and automatically converts to the querying client&#x27;s session time zone on retrieval. It is ideal for multi-region web applications where users expect dates in their local time.</p>
+  </div>
+</div>
+<div class="faq-item">
+  <button class="faq-header">
+    <span>What happens when casting a high-precision TIMESTAMP to a DATE?</span>
+    <span class="faq-icon">▼</span>
+  </button>
+  <div class="faq-body">
+    <p>CAST(timestamp_val AS DATE) strips sub-second values and rounds to the nearest whole second.</p>
+  </div>
+</div>
+        </div>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="reference.html" class="foot-btn">
+          <span class="foot-sub">Previous</span>
+          <span class="foot-title">← Reference & Matrices</span>
+        </a>
+        <a href="index.html" class="foot-btn" style="text-align:right;">
+          <span class="foot-sub">Start Over</span>
+          <span class="foot-title">Comprehensive Guide →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+</div>
+
+
+<div class="search-modal" id="search-modal">
+  <div class="search-dialog">
+    <div class="search-bar-wrap">
+      <span>🔍</span>
+      <input type="text" class="search-input" id="modal-search-input" placeholder="Search this guide by keyword, code, or topic...">
+      <button class="kbd-shortcut" onclick="document.getElementById('search-modal').classList.remove('open')">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script src="js/search-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

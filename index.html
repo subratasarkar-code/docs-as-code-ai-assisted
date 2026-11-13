@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Documentation Hub | Oracle & Database Engineering</title>
+  <link rel="stylesheet" href="css/hub.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left">
+      <a href="index.html" class="brand-badge">
+        <span class="portal-logo-sq">DB</span>
+        <span>Enterprise Documentation Hub</span>
+      </a>
+      <span class="portal-tag">Oracle & Database Engineering Architecture Portal</span>
+    </div>
+    <div class="header-right">
+      <button class="theme-toggle-btn" id="hub-theme-toggle" aria-label="Toggle Theme">
+        <span>🌓</span>
+        <span>Dark Mode</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hub-hero">
+  <div class="hero-inner">
+    <span class="outcome-pill">OUTCOME DRIVEN • PERSONAL INITIATIVE BY SUBRATA SARKAR</span>
+    <h1>Enterprise Oracle & Database Engineering Documentation Hub</h1>
+    <p class="hub-subtitle">Outcome driven: Every architectural process, performance matrix, diagnostic playbook, and PL/SQL implementation blueprint across our enterprise database platforms in one place.</p>
+
+    <!-- Search Card (Matches sample.jpeg) -->
+    <div class="search-card-hero">
+      <div class="search-card-title">Find answers in the documentation</div>
+      <div class="search-card-sub">Instant client-side lookup across all 11 technical guides, vector AI blueprints, and tuning matrices.</div>
+      
+      <div class="search-input-group">
+        <div class="search-input-box">
+          <span class="search-icon-inside">🔍</span>
+          <input type="text" id="hub-search-input" placeholder="Type a task, wait event, PL/SQL package, or keyword..." autocomplete="off">
+        </div>
+        <select class="category-select" id="category-filter">
+          <option value="ALL">All Categories</option><option value="ADVANCED ANALYTICS">ADVANCED ANALYTICS</option><option value="DATABASE AI & RAG">DATABASE AI & RAG</option><option value="DIAGNOSTICS & TUNING">DIAGNOSTICS & TUNING</option><option value="ENTERPRISE CASE STUDY">ENTERPRISE CASE STUDY</option><option value="PL/SQL ARCHITECTURE">PL/SQL ARCHITECTURE</option><option value="PL/SQL PERFORMANCE">PL/SQL PERFORMANCE</option><option value="STORAGE & DATATYPES">STORAGE & DATATYPES</option>
+        </select>
+        <button class="search-btn-primary" onclick="document.getElementById('hub-search-input').focus()">
+          Search Documentation
+        </button>
+      </div>
+
+      <div class="search-tags-row">
+        <span>Popular topics:</span>
+        <a href="#" class="search-tag-chip" data-search="AWR">AWR Top Events</a>
+        <a href="#" class="search-tag-chip" data-search="Pipelined">Pipelined Functions</a>
+        <a href="#" class="search-tag-chip" data-search="SecureFiles">SecureFiles LOBs</a>
+        <a href="#" class="search-tag-chip" data-search="Vector">Vector AI & RAG</a>
+        <a href="#" class="search-tag-chip" data-search="Circuit Breaker">Circuit Breakers</a>
+        <a href="#" class="search-tag-chip" data-search="Explain Plan">Explain Plan Tuning</a>
+        <a href="#" class="search-tag-chip" data-search="In-Memory">In-Memory Dual-Format</a>
+        <a href="#" class="search-tag-chip" data-search="OML">Machine Learning GLM</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="hub-main">
+  <div class="section-head-hub">
+    <div>
+      <h2>Technical Guides & Architectural Specifications</h2>
+      <p style="font-size:13.5px;color:var(--text-muted);margin-top:2px;">Select a guide below to explore the comprehensive documentation or open the original PDF in a new tab.</p>
+    </div>
+    <span class="doc-count-badge" id="visible-count">Showing 11 of 11 Guides</span>
+  </div>
+
+  <div class="cards-grid">
+    
+<div class="doc-card" data-title="AI Enablement of Oracle Database Using Oracle 26ai and Oracle APEX 24.2" data-category="DATABASE AI & RAG">
+  <div class="card-top">
+    <span class="card-cat-badge">DATABASE AI & RAG</span>
+    <h3 class="card-title">AI Enablement of Oracle Database Using Oracle 26ai and Oracle APEX 24.2</h3>
+    <p class="card-desc">Evaluate and deploy in-database AI capabilities, Vector Embeddings, and Retrieval-Augmented Generation (RAG) with Oracle APEX 24.2.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>11 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>12 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="AI Enablement of Oracle Database/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="AI Enablement of Oracle Database/AI Enablement of Oracle Database.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="AI Enablement of Oracle Database/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="AI Enablement of Oracle Database/workflow.html">Code</a>
+      <span>•</span>
+      <a href="AI Enablement of Oracle Database/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="AI Enablement of Oracle Database/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="doc-card" data-title="Efficient LOB Handling in PL/SQL" data-category="PL/SQL PERFORMANCE">
+  <div class="card-top">
+    <span class="card-cat-badge">PL/SQL PERFORMANCE</span>
+    <h3 class="card-title">Efficient LOB Handling in PL/SQL</h3>
+    <p class="card-desc">PGA Memory Management, Piecewise Processing, SecureFiles Storage Optimization, and Zero-Copy Parameter Passing.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>3 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>8 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="Efficient_LOB_Handling_in_PLSQL/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="Efficient_LOB_Handling_in_PLSQL/Efficient_LOB_Handling_in_PLSQL.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="Efficient_LOB_Handling_in_PLSQL/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="Efficient_LOB_Handling_in_PLSQL/workflow.html">Code</a>
+      <span>•</span>
+      <a href="Efficient_LOB_Handling_in_PLSQL/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="Efficient_LOB_Handling_in_PLSQL/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="doc-card" data-title="Efficient XML Parsing in PL/SQL" data-category="PL/SQL PERFORMANCE">
+  <div class="card-top">
+    <span class="card-cat-badge">PL/SQL PERFORMANCE</span>
+    <h3 class="card-title">Efficient XML Parsing in PL/SQL</h3>
+    <p class="card-desc">Vectorized Processing, Binary XML, Streaming APIs (DBMS_XMLSTORE), and Memory Optimization.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>3 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>7 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="Efficient_XML_Parsing_in_PLSQL/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="Efficient_XML_Parsing_in_PLSQL/Efficient_XML_Parsing_in_PLSQL.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="Efficient_XML_Parsing_in_PLSQL/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="Efficient_XML_Parsing_in_PLSQL/workflow.html">Code</a>
+      <span>•</span>
+      <a href="Efficient_XML_Parsing_in_PLSQL/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="Efficient_XML_Parsing_in_PLSQL/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="doc-card" data-title="Expert Oracle PL/SQL Performance Tuning &amp; High-Speed Architectures" data-category="ENTERPRISE CASE STUDY">
+  <div class="card-top">
+    <span class="card-cat-badge">ENTERPRISE CASE STUDY</span>
+    <h3 class="card-title">Expert Oracle PL/SQL Performance Tuning &amp; High-Speed Architectures</h3>
+    <p class="card-desc">An Enterprise Case Study on High-Throughput Subsystem Engineering in High-Volume Financial Systems.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>4 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>15 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="Expert Oracle PLSQL Performance Tuning Case Study/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="Expert Oracle PLSQL Performance Tuning Case Study/Expert Oracle PLSQL Performance Tuning Case Study.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="Expert Oracle PLSQL Performance Tuning Case Study/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="Expert Oracle PLSQL Performance Tuning Case Study/workflow.html">Code</a>
+      <span>•</span>
+      <a href="Expert Oracle PLSQL Performance Tuning Case Study/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="Expert Oracle PLSQL Performance Tuning Case Study/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="doc-card" data-title="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database" data-category="DATABASE AI & RAG">
+  <div class="card-top">
+    <span class="card-cat-badge">DATABASE AI & RAG</span>
+    <h3 class="card-title">Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database</h3>
+    <p class="card-desc">Database-Native, Asynchronous Multi-Agent RAG with Decoupled Blackboard Design and Stateful Circuit Breakers.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>4 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>10 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database/Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database/workflow.html">Code</a>
+      <span>•</span>
+      <a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="doc-card" data-title="Oracle AWR Interpretation Guide" data-category="DIAGNOSTICS & TUNING">
+  <div class="card-top">
+    <span class="card-cat-badge">DIAGNOSTICS & TUNING</span>
+    <h3 class="card-title">Oracle AWR Interpretation Guide</h3>
+    <p class="card-desc">A Top-Down Diagnostic Approach for Database Performance Tuning and Wait Event Root-Cause Analysis.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>3 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>9 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="Oracle_AWR_Interpretation_Guide/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="Oracle_AWR_Interpretation_Guide/Oracle_AWR_Interpretation_Guide.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="Oracle_AWR_Interpretation_Guide/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="Oracle_AWR_Interpretation_Guide/workflow.html">Code</a>
+      <span>•</span>
+      <a href="Oracle_AWR_Interpretation_Guide/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="Oracle_AWR_Interpretation_Guide/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="doc-card" data-title="DATE vs. TIMESTAMP Technical Comparison" data-category="STORAGE & DATATYPES">
+  <div class="card-top">
+    <span class="card-cat-badge">STORAGE & DATATYPES</span>
+    <h3 class="card-title">DATE vs. TIMESTAMP Technical Comparison</h3>
+    <p class="card-desc">Precision, Time Zone Variants, Byte Storage Layout, and Datetime Arithmetic Behavior.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>2 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>6 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2/Oracle_DATE_vs_TIMESTAMP_Comparison-v2.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2/workflow.html">Code</a>
+      <span>•</span>
+      <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="Oracle_DATE_vs_TIMESTAMP_Comparison-v2/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="doc-card" data-title="Oracle Explain Plan Tuning Guide" data-category="DIAGNOSTICS & TUNING">
+  <div class="card-top">
+    <span class="card-cat-badge">DIAGNOSTICS & TUNING</span>
+    <h3 class="card-title">Oracle Explain Plan Tuning Guide</h3>
+    <p class="card-desc">A Practical Reference for Reading Execution Plans, Execution Order, and Pinpointing Performance Red Flags.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>3 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>8 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="Oracle_Explain_Plan_Tuning_Guide/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="Oracle_Explain_Plan_Tuning_Guide/Oracle_Explain_Plan_Tuning_Guide.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="Oracle_Explain_Plan_Tuning_Guide/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="Oracle_Explain_Plan_Tuning_Guide/workflow.html">Code</a>
+      <span>•</span>
+      <a href="Oracle_Explain_Plan_Tuning_Guide/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="Oracle_Explain_Plan_Tuning_Guide/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="doc-card" data-title="Accelerating Real-Time Enterprise Analytics: Oracle Database In-Memory" data-category="ENTERPRISE CASE STUDY">
+  <div class="card-top">
+    <span class="card-cat-badge">ENTERPRISE CASE STUDY</span>
+    <h3 class="card-title">Accelerating Real-Time Enterprise Analytics: Oracle Database In-Memory</h3>
+    <p class="card-desc">A Technical Case Study on Dual-Format Architecture Deployment and Mixed-Workload Optimization.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>3 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>10 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="Oracle_In_Memory_Case_Study_Final/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="Oracle_In_Memory_Case_Study_Final/Oracle_In_Memory_Case_Study_Final.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="Oracle_In_Memory_Case_Study_Final/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="Oracle_In_Memory_Case_Study_Final/workflow.html">Code</a>
+      <span>•</span>
+      <a href="Oracle_In_Memory_Case_Study_Final/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="Oracle_In_Memory_Case_Study_Final/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="doc-card" data-title="PL/SQL Collection Types Comparison" data-category="PL/SQL ARCHITECTURE">
+  <div class="card-top">
+    <span class="card-cat-badge">PL/SQL ARCHITECTURE</span>
+    <h3 class="card-title">PL/SQL Collection Types Comparison</h3>
+    <p class="card-desc">Associative Arrays, Varrays, and Nested Tables - Architectural Analysis and Selection Decision Tree.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>3 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>8 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="PLSQL_Collection_Types_Comparison/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="PLSQL_Collection_Types_Comparison/PLSQL_Collection_Types_Comparison.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="PLSQL_Collection_Types_Comparison/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="PLSQL_Collection_Types_Comparison/workflow.html">Code</a>
+      <span>•</span>
+      <a href="PLSQL_Collection_Types_Comparison/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="PLSQL_Collection_Types_Comparison/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="doc-card" data-title="Technical Report: Oracle Machine Learning (OML) Proof of Concept" data-category="ADVANCED ANALYTICS">
+  <div class="card-top">
+    <span class="card-cat-badge">ADVANCED ANALYTICS</span>
+    <h3 class="card-title">Technical Report: Oracle Machine Learning (OML) Proof of Concept</h3>
+    <p class="card-desc">In-Database Claim Denial Predictive Modeling using Generalized Linear Model (GLM) Classification and DBMS_DATA_MINING.</p>
+    <div class="card-meta-list">
+      <div class="card-meta-item"><span>📄</span><span>3 Pages</span></div>
+      <div class="card-meta-item"><span>⏱️</span><span>11 min read</span></div>
+      <div class="card-meta-item"><span>👤</span><span>Subrata Sarkar</span></div>
+    </div>
+  </div>
+  <div class="card-action-row">
+    <div class="card-btn-group">
+      <a href="Technical Report: Oracle Machine Learning (OML) Proof of Concept/index.html" class="doc-link-btn">
+        <span>Explore Guide</span>
+        <span>→</span>
+      </a>
+      <a href="Technical Report: Oracle Machine Learning (OML) Proof of Concept/Technical Report: Oracle Machine Learning (OML) Proof of Concept.pdf" target="_blank" rel="noopener noreferrer" class="doc-pdf-btn" title="Open source PDF in a new tab">
+        <span>📄 View PDF</span>
+        <span>↗</span>
+      </a>
+    </div>
+    <div class="doc-quick-links">
+      <a href="Technical Report: Oracle Machine Learning (OML) Proof of Concept/architecture.html">Arch</a>
+      <span>•</span>
+      <a href="Technical Report: Oracle Machine Learning (OML) Proof of Concept/workflow.html">Code</a>
+      <span>•</span>
+      <a href="Technical Report: Oracle Machine Learning (OML) Proof of Concept/reference.html">Matrix</a>
+      <span>•</span>
+      <a href="Technical Report: Oracle Machine Learning (OML) Proof of Concept/faq.html">FAQ</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</main>
+
+<footer class="hub-footer">
+  <div class="footer-inner">
+    <div>
+      <div style="font-weight:700;color:white;margin-bottom:4px;display:flex;align-items:center;gap:8px;">
+        <span class="portal-logo-sq" style="width:20px;height:20px;font-size:11px;">DB</span>
+        <span>Enterprise Documentation Architecture</span>
+      </div>
+      <div>Designed with 100% source fidelity, embedded architecture diagrams, zero omissions, and complete topic-based discoverability.</div>
+    </div>
+    <div style="font-size:12px;">
+      <div>All documentation portals run 100% client-side (no server required).</div>
+      <div style="margin-top:4px;">Simply open <code>index.html</code> in any web browser.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/hub-search-data.js"></script>
+<script src="js/hub.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference & Matrices | PL/SQL Collections Comparison</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+      <a href="../index.html" class="brand-badge">
+        <span class="portal-logo-sq">DB</span>
+        <span>Technical Documentation Portal</span>
+      </a>
+      <span class="brand-divider">/</span>
+      <a href="../index.html" class="hub-back-btn">
+        <span>← Enterprise Documentation Hub</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <a href="PLSQL_Collection_Types_Comparison.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn" title="Open original PDF in a new tab">
+        <span>📄 View PDF ↗</span>
+      </a>
+      <button class="search-trigger-btn">
+        <span>🔍 Search guide...</span>
+        <span class="kbd-shortcut">/</span>
+      </button>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <span>🌓</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<div class="subnav-bar">
+  <div class="subnav-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Hub Home</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html">PL/SQL Collections Comparison</a>
+      <span class="crumb-sep">/</span>
+      <span style="color:var(--text-main);font-weight:600;">Reference & Matrices</span>
+    </nav>
+    <div class="doc-meta-tags">
+      <span class="meta-tag tag-orange">PL/SQL ARCHITECTURE</span>
+      <span class="meta-tag tag-slate">8 min read</span>
+      <span class="meta-tag tag-slate">3 Pages</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="layout-container">
+  
+<aside class="sidebar">
+  <div class="sidebar-heading">Navigation Modes</div>
+  <ul class="nav-tree">
+    
+<li class="nav-item">
+  <a href="index.html" class="nav-link">
+    <span><span class="nav-icon">📖</span>Comprehensive Guide</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="architecture.html" class="nav-link">
+    <span><span class="nav-icon">🏗️</span>Architecture & Data</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="workflow.html" class="nav-link">
+    <span><span class="nav-icon">⚙️</span>Workflow & Code</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="reference.html" class="nav-link active">
+    <span><span class="nav-icon">📊</span>Reference & Matrices</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="faq.html" class="nav-link">
+    <span><span class="nav-icon">❓</span>FAQs & Best Practices</span>
+  </a>
+</li>
+  </ul>
+  
+  <div class="sidebar-pdf-card">
+    <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;margin-bottom:6px;">Original Document</div>
+    <a href="PLSQL_Collection_Types_Comparison.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-pdf-btn">
+      <span>📄 Open PDF in New Tab ↗</span>
+    </a>
+  </div>
+  <div class="sidebar-heading" style="margin-top:24px;">Source Traceability</div>
+  <div style="font-size:12px;color:var(--text-light);padding:0 8px;line-height:1.5;">
+    <div><strong>Source:</strong> PLSQL_Collection_Types_Comparison.pdf</div>
+    <div><strong>Author:</strong> Subrata Sarkar</div>
+    <div><strong>Status:</strong> Architecture Guide</div>
+    <div><strong>Confidentiality:</strong> Technical Reference</div>
+  </div>
+</aside>
+
+
+  <main class="main-content">
+    <article class="content-article">
+      <div class="doc-hero">
+        <div class="doc-badge-row">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="doc-category-badge">PL/SQL ARCHITECTURE</span>
+            <span style="font-size:12px;color:var(--text-light);">• Quick Reference Matrix</span>
+          </div>
+          <a href="PLSQL_Collection_Types_Comparison.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+            <span>📄 View Original PDF ↗</span>
+          </a>
+        </div>
+        <h1>Technical Reference, Decision Matrices & Parameters</h1>
+        <p class="doc-tagline">Structured evaluation tables, comparison matrices, configuration thresholds, and performance red flags.</p>
+      </div>
+
+      <div class="doc-tabs"><a href="index.html" class="doc-tab">Comprehensive Guide</a><a href="architecture.html" class="doc-tab">Architecture & Data</a><a href="workflow.html" class="doc-tab">Workflow & Implementation</a><a href="reference.html" class="doc-tab active">Reference & Decision Matrices</a><a href="faq.html" class="doc-tab">FAQs & Diagnostics</a></div>
+
+      <section>
+        <h2 class="section-heading">📊 Decision Matrices & Technical Specifications</h2>
+        <p>Comprehensive reference tables extracted directly from the authoritative source document without simplification.</p>
+
+        <p><strong>ORACLE DATABASE PROGRAMMING ARCHITECTURE</strong></p>
+<h2 id="plsql-collection-types-comparison" class="section-heading"><strong>PL/SQL Collection Types Comparison</strong></h2>
+<p>Associative Arrays • Varrays • Nested Tables</p>
+<p>In PL/SQL, <strong>Associative Arrays</strong> , <strong>Varrays</strong> (Variable-Size Arrays), and <strong>Nested Tables</strong> are the three primary collection structures used to manage composite data. While all three store ordered elements of the same datatype, they differ fundamentally in <strong>persistence</strong> , <strong>indexing capabilities</strong> , <strong>memory layout</strong> , and <strong>SQL integration</strong> .</p>
+<h2 id="1-quick-feature-comparison-matrix" class="section-heading"><strong>1. Quick Feature Comparison Matrix</strong></h2>
+<div class="table-responsive"><table>
+<thead><tr>
+<th><strong>FEATURE</strong></th>
+<th><strong>ASSOCIATIVE ARRAY</strong></th>
+<th><strong>VARRAY</strong></th>
+<th><strong>NESTED TABLE</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Primary Purpose</strong></td>
+<td>In-memory lookup tables,<br/>key-value caching</td>
+<td>Fixed-size ordered sets (e.g.,<br/>top contacts)</td>
+<td>Dynamic sets, DB column<br/>storage, set operations</td>
+</tr>
+<tr>
+<td><strong>Database Storage</strong></td>
+<td><strong>NO</strong>(PL/SQL Memory Only)</td>
+<td><strong>YES</strong>(Inlined RAW or LOB)</td>
+<td><strong>YES</strong>(Out-of-line Child<br/>Table)</td>
+</tr>
+<tr>
+<td><strong>Maximum Bounds</strong></td>
+<td>Dynamic (2<sup>31</sup>- 1 elements)</td>
+<td><strong>Fixed limit</strong>set at creation</td>
+<td>Unbounded (Dynamic)</td>
+</tr>
+<tr>
+<td><strong>Indexing Mechanism</strong></td>
+<td><code>PLS_INTEGER</code>or<code>VARCHAR2</code></td>
+<td>Sequential Integer (<code>1..N</code>)</td>
+<td>Sequential Integer (<code>1..N</code>)</td>
+</tr>
+<tr>
+<td><strong>Sparseness</strong></td>
+<td><strong>Sparse</strong>(non-sequential<br/>keys)</td>
+<td><strong>Dense</strong>(strict order)</td>
+<td>Starts<strong>Dense</strong>; can become<br/><strong>Sparse</strong></td>
+</tr>
+<tr>
+<td><strong>Constructor /</strong><br/><strong>Initialization</strong></td>
+<td>Automatic (No constructor/<br/>EXTEND)</td>
+<td>Requires<code>NEW</code>&<code>EXTEND</code></td>
+<td>Requires<code>NEW</code>&<code>EXTEND</code></td>
+</tr>
+<tr>
+<td><strong>SQL Engine</strong><br/><strong>Integration</strong></td>
+<td>PL/SQL context only</td>
+<td>Queryable/storable via SQL</td>
+<td>Full SQL support<br/>(<code>MULTISET</code>,<code>MEMBER OF</code>)</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-deep-dive-implementation-details" class="section-heading"><strong>2. Deep Dive & Implementation Details</strong></h2>
+<h3 id="a-associative-arrays-index-by-tables" class="subsection-heading"><strong>A. Associative Arrays (Index-By Tables)</strong></h3>
+<p>Associative arrays are purely temporary, in-memory structures built for high-performance lookup tables during procedure or package execution.</p>
+<p>• <strong>Strengths:</strong> Dynamic sizing without requiring initialization constructors or <code>EXTEND</code> calls. Supports string keys (e.g., indexing by employee ID or GUID).</p>
+<ul>
+<li><strong>Limitations:</strong> Cannot be defined as database schema objects or stored inside database table columns.</li>
+</ul>
+<p>-</p>
+<h4 id="declare" class="tertiary-heading"><strong><code>DECLARE</code></strong></h4>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">-- Indexed by integer or string key
+TYPEt_lookupIS TABLE OFVARCHAR2(100)INDEX BYPLS_INTEGER;
+  v_cache t_lookup;</code></pre>
+</div>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">BEGIN</code></pre>
+</div>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">  v_cache(10) := &#x27;Active&#x27;;   -- Sparse key allocation
+  v_cache(42) := &#x27;Pending&#x27;;  -- No EXTEND or initialization required
+END;
+/</code></pre>
+</div>
+<p>PL/SQL Architecture Reference Guide</p>
+<h3 id="b-varrays-variable-size-arrays" class="subsection-heading"><strong>B. Varrays (Variable-Size Arrays)</strong></h3>
+<p>Varrays are ordered collections designed for scenarios where the maximum number of items is strictly known ahead of time.</p>
+<ul>
+<li><strong>Strengths:</strong> Guarantees element order retention when persisted and retrieved from database columns.</li>
+</ul>
+<ul>
+<li><strong>Limitations:</strong> Fixed upper bound defined at declaration. Always strictly dense—intermediate elements cannot be deleted individually.</li>
+</ul>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">DECLARE
+TYPEt_phonesIS VARRAY(5) OFVARCHAR2(20); -- Fixed cap of 5
+  v_list t_phones := t_phones();               -- Constructor initialization
+BEGIN
+  v_list.EXTEND;
+  v_list(1) := &#x27;+1-555-0199&#x27;;
+END;
+/</code></pre>
+</div>
+<h3 id="c-nested-tables" class="subsection-heading"><strong>C. Nested Tables</strong></h3>
+<p>Nested tables model single-column relational tables within memory or column data, seamlessly blending PL/ SQL logic with SQL set operations.</p>
+<ul>
+<li><strong>Strengths:</strong> Unbounded dynamic growth. Native support for set operations (e.g., <code>MULTISET UNION</code> , <code>MEMBER OF</code> , <code>CARDINALITY</code> ).</li>
+</ul>
+<ul>
+<li><strong>Limitations:</strong> When stored in database columns, element order is not inherently preserved unless explicitly retrieved with an <code>ORDER BY</code> clause.</li>
+</ul>
+<h4 id="declare" class="tertiary-heading"><strong><code>DECLARE</code></strong></h4>
+
+<div class="code-container">
+  <div class="code-header">
+    <span class="code-lang-label">sql</span>
+    <button class="copy-btn" title="Copy to clipboard">Copy</button>
+  </div>
+  <pre><code class="language-sql">TYPEt_tagsIS TABLE OFVARCHAR2(50); -- Unbounded dynamic collection
+  v_tags t_tags := t_tags(&#x27;SQL&#x27;, &#x27;PLSQL&#x27;); -- Constructor initialization
+BEGIN
+  v_tags.EXTEND;
+  v_tags(3) := &#x27;Performance&#x27;;
+  v_tags.DELETE(2); -- Can become sparse upon intermediate deletion
+END;
+/</code></pre>
+</div>
+<p>PL/SQL Architecture Reference Guide</p>
+<h2 id="3-selection-strategy-guide" class="section-heading"><strong>3. Selection Strategy Guide</strong></h2>
+<h4 id="architecture-decision-tree" class="tertiary-heading"><strong>Architecture Decision Tree</strong></h4>
+<ul>
+<li><strong>Use Associative Arrays when:</strong> Building fast internal caching mechanisms, key-value mapping (e.g., indexing by <code>VARCHAR2</code> keys), or temporary logic within PL/SQL procedures.</li>
+</ul>
+<ul>
+<li><strong>Use Varrays when:</strong> Storing fixed small collections where insertion order must be strictly preserved on disk (e.g., historical audit logs, up to 5 contact numbers per user).</li>
+</ul>
+<ul>
+<li><strong>Use Nested Tables when:</strong> Manipulating dynamic, unbounded datasets, performing high-level SQL set manipulations, or storing child collections directly within database table columns.</li>
+</ul>
+<p>PL/SQL Architecture Reference Guide</p>
+      </section>
+
+      <div class="doc-footer-nav">
+        <a href="workflow.html" class="foot-btn">
+          <span class="foot-sub">Previous</span>
+          <span class="foot-title">← Workflow & Code</span>
+        </a>
+        <a href="faq.html" class="foot-btn" style="text-align:right;">
+          <span class="foot-sub">Next Topic</span>
+          <span class="foot-title">FAQs & Diagnostics →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+</div>
+
+
+<div class="search-modal" id="search-modal">
+  <div class="search-dialog">
+    <div class="search-bar-wrap">
+      <span>🔍</span>
+      <input type="text" class="search-input" id="modal-search-input" placeholder="Search this guide by keyword, code, or topic...">
+      <button class="kbd-shortcut" onclick="document.getElementById('search-modal').classList.remove('open')">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script src="js/search-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

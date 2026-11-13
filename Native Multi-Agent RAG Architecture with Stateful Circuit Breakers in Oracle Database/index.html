@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database | Technical Documentation Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-container">
+    <div class="header-left">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+      <a href="../index.html" class="brand-badge">
+        <span class="portal-logo-sq">DB</span>
+        <span>Technical Documentation Portal</span>
+      </a>
+      <span class="brand-divider">/</span>
+      <a href="../index.html" class="hub-back-btn">
+        <span>← Enterprise Documentation Hub</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn" title="Open original PDF in a new tab">
+        <span>📄 View PDF ↗</span>
+      </a>
+      <button class="search-trigger-btn">
+        <span>🔍 Search guide...</span>
+        <span class="kbd-shortcut">/</span>
+      </button>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <span>🌓</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<div class="subnav-bar">
+  <div class="subnav-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Hub Home</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html">Native Multi-Agent RAG Architecture</a>
+      <span class="crumb-sep">/</span>
+      <span style="color:var(--text-main);font-weight:600;">Comprehensive Guide</span>
+    </nav>
+    <div class="doc-meta-tags">
+      <span class="meta-tag tag-orange">DATABASE AI & RAG</span>
+      <span class="meta-tag tag-slate">10 min read</span>
+      <span class="meta-tag tag-slate">4 Pages</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="layout-container">
+  
+<aside class="sidebar">
+  <div class="sidebar-heading">Navigation Modes</div>
+  <ul class="nav-tree">
+    
+<li class="nav-item">
+  <a href="index.html" class="nav-link active">
+    <span><span class="nav-icon">📖</span>Comprehensive Guide</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="architecture.html" class="nav-link">
+    <span><span class="nav-icon">🏗️</span>Architecture & Data</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="workflow.html" class="nav-link">
+    <span><span class="nav-icon">⚙️</span>Workflow & Code</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="reference.html" class="nav-link">
+    <span><span class="nav-icon">📊</span>Reference & Matrices</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="faq.html" class="nav-link">
+    <span><span class="nav-icon">❓</span>FAQs & Best Practices</span>
+  </a>
+</li>
+  </ul>
+  <div class="sidebar-heading">Document Topics</div><ul class="nav-tree">
+<li class="nav-item">
+  <a href="#-technical-report" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>• 📄 TECHNICAL REPORT</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="#1-executive-summary" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>• 1. Executive Summary</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="#2-problem-statement" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>• 2. Problem Statement</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="#3-system-architecture-methodology" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>• 3. System Architecture &amp; Methodology</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="#31-the-blackboard-design-pattern" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>&nbsp;&nbsp;• 3.1 The &quot;Blackboard&quot; Design Pattern</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="#32-implemented-agents" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>&nbsp;&nbsp;• 3.2 Implemented Agents</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="#4-key-advanced-features" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>• 4. Key Advanced Features</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="#41-stateful-circuit-breaker" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>&nbsp;&nbsp;• 4.1 Stateful Circuit Breaker</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="#42-asynchronous-true-autonomy-via-dbmsscheduler" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>&nbsp;&nbsp;• 4.2 Asynchronous True Autonomy via DBMSSCHEDULER</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="#5-successful-execution-evidence-results" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>• 5. Successful Execution Evidence &amp; Results</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="#6-recommendations-next-steps" class="nav-link" style="font-size:12.5px;padding:5px 10px;">
+    <span>• 6. Recommendations &amp; Next Steps</span>
+  </a>
+</li></ul>
+  <div class="sidebar-pdf-card">
+    <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;margin-bottom:6px;">Original Document</div>
+    <a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-pdf-btn">
+      <span>📄 Open PDF in New Tab ↗</span>
+    </a>
+  </div>
+  <div class="sidebar-heading" style="margin-top:24px;">Source Traceability</div>
+  <div style="font-size:12px;color:var(--text-light);padding:0 8px;line-height:1.5;">
+    <div><strong>Source:</strong> Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database.pdf</div>
+    <div><strong>Author:</strong> Subrata Sarkar</div>
+    <div><strong>Status:</strong> Technical Report</div>
+    <div><strong>Confidentiality:</strong> Technical Report</div>
+  </div>
+</aside>
+
+
+  <main class="main-content">
+    <article class="content-article">
+      <div class="doc-hero" id="overview">
+        <div class="doc-badge-row">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="doc-category-badge">DATABASE AI & RAG</span>
+            <span style="font-size:12px;color:var(--text-light);">• Author: Subrata Sarkar</span>
+            <span style="font-size:12px;color:var(--text-light);">• Technical Report</span>
+          </div>
+          <a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+            <span>📄 View Original PDF ↗</span>
+          </a>
+        </div>
+        <h1>Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database</h1>
+        <p class="doc-tagline">Database-Native, Asynchronous Multi-Agent RAG with Decoupled Blackboard Design and Stateful Circuit Breakers.</p>
+        
+<div class="outcomes-grid">
+  
+<div class="outcome-card">
+  <div class="outcome-metric">100% In-DB</div>
+  <div class="outcome-label">Eliminates external compute servers & data movement</div>
+</div>
+<div class="outcome-card">
+  <div class="outcome-metric">3 Agents</div>
+  <div class="outcome-label">Search, Synthesizer & Quality Critic team</div>
+</div>
+<div class="outcome-card">
+  <div class="outcome-metric">3-State Breaker</div>
+  <div class="outcome-label">Automatic throttling on 3 consecutive API faults</div>
+</div>
+<div class="outcome-card">
+  <div class="outcome-metric">Zero Deadlock</div>
+  <div class="outcome-label">Autonomous concurrency via SKIP LOCKED</div>
+</div>
+</div>
+
+      </div>
+
+      <div class="doc-tabs"><a href="index.html" class="doc-tab active">Comprehensive Guide</a><a href="architecture.html" class="doc-tab">Architecture & Data</a><a href="workflow.html" class="doc-tab">Workflow & Implementation</a><a href="reference.html" class="doc-tab">Reference & Decision Matrices</a><a href="faq.html" class="doc-tab">FAQs & Diagnostics</a></div>
+
+      
+<div class="goals-box" id="user-goals">
+  <div class="goals-title">
+    <span>🎯</span>
+    <span>Key Objectives & User Intent</span>
+  </div>
+  <ul class="goals-list">
+    
+<li class="goal-item">
+  <span class="goal-check">✓</span>
+  <span>Eliminate external Python server bloat (LangGraph/LangChain) by running agentic workflows natively in Oracle DB</span>
+</li>
+<li class="goal-item">
+  <span class="goal-check">✓</span>
+  <span>Implement a decoupled Blackboard Pattern using AGENT_BLACKBOARD table with FOR UPDATE SKIP LOCKED</span>
+</li>
+<li class="goal-item">
+  <span class="goal-check">✓</span>
+  <span>Orchestrate collaborative Search, Synthesizer, and Critic agents with hallucination feedback loops</span>
+</li>
+<li class="goal-item">
+  <span class="goal-check">✓</span>
+  <span>Protect database sessions from external LLM outages using a stateful 3-state Circuit Breaker (CLOSED/OPEN/HALF-OPEN)</span>
+</li>
+  </ul>
+  <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border-color);font-size:13px;">
+    <strong>Critical Infrastructure & Dependencies:</strong>
+    <ul style="margin:8px 0 0 16px;display:flex;gap:16px;flex-wrap:wrap;list-style:disc;">
+      <li><code>Oracle Database 23ai / 26ai Vector Search</code></li><li><code>Control Table: AGENT_BLACKBOARD</code></li><li><code>DBMS_SCHEDULER Autonomous Background Workers</code></li><li><code>Circuit Breaker PL/SQL Package (Threshold & Cooldown)</code></li>
+    </ul>
+  </div>
+</div>
+
+
+      <!-- Complete Source Content with Embedded Figures -->
+      <section class="source-content-body">
+        <h2 id="-technical-report" class="section-heading">📄 <strong>TECHNICAL REPORT</strong></h2>
+<p><strong>Title:</strong> Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database</p>
+<p><strong>Author:</strong> Subrata Sarkar</p>
+<p><strong>Date:</strong> March 2026</p>
+<h2 id="1-executive-summary" class="section-heading"><strong>1. Executive Summary</strong></h2>
+<p>This technical report details the successful implementation of a database-native, asynchronous Multi-Agent Retrieval-Augmented Generation (RAG) system. While traditional AI agent frameworks heavily rely on external Python compute environments (e.g., LangGraph, Databricks), this Proof of Concept (POC) demonstrates that advanced agentic workflows—complete with complex state management, quality control loops, and API fail-safes—can be executed entirely inside an Oracle Database instance.</p>
+<p>By leveraging native database capabilities, the system achieves lower latency by eliminating network data movement, utilizes highly robust security protocols, and maintains transaction-safe conversation states.</p>
+<h2 id="2-problem-statement" class="section-heading"><strong>2. Problem Statement</strong></h2>
+<p>Modern enterprise RAG systems typically separate the data layer (the database) from the application execution layer (Python/LangChain). This introduces several critical overheads:</p>
+<ol>
+<li><strong>Infrastructure Bloat:</strong> Maintaining separate Python servers or Databricks clusters purely for agentic state routing.</li>
+</ol>
+<ol>
+<li><strong>Data Gravity Challenges:</strong> Shuttling massive sets of document chunks across the wire to external APIs introduces latency and security risks.</li>
+</ol>
+<ol>
+<li><strong>State Volatility:</strong> Managing crash-resilient short-term memory across microservices is complex and prone to data loss.</li>
+</ol>
+<h2 id="3-system-architecture-methodology" class="section-heading"><strong>3. System Architecture & Methodology</strong></h2>
+<p>The solution shifts the orchestration paradigm by using the database as both the <strong>source of truth</strong> and the <strong>execution brain</strong> .</p>
+<h3 id="31-the-blackboard-design-pattern" class="subsection-heading"><strong>3.1 The "Blackboard" Design Pattern</strong></h3>
+
+<div class="doc-figure" id="figure-blackboard-architecture">
+  <div class="doc-figure-img-wrap">
+    <a href="images/figure_3_1.png" target="_blank" title="Click to view full image">
+      <img src="images/figure_3_1.png" alt="Blackboard Multi-Agent Architecture Diagram" loading="lazy">
+    </a>
+  </div>
+  <div class="doc-figure-caption">
+    <span><strong>Figure 1:</strong> Native Multi-Agent Architecture with Stateful Circuit Breakers & Blackboard Pattern</span>
+    <span style="font-size:11px;color:var(--text-light);">Click image to enlarge</span>
+  </div>
+</div>
+<p>Instead of hardcoding a linear flow of execution (Agent A calling Agent B), a decoupled blackboard design was utilized via a control table named <code>AGENT</code> <code>_</code> <code>BLACKBOARD</code> .</p>
+<ul>
+<li>Requests are logged as a centralized row.</li>
+</ul>
+<ul>
+<li>Agents act as independent background workers that read the state of the blackboard, process their task, and flip the status for the next agent to consume.</li>
+</ul>
+<h3 id="32-implemented-agents" class="subsection-heading"><strong>3.2 Implemented Agents</strong></h3>
+<p>Three specialized database agents were constructed to simulate a team of human collaborators:</p>
+<ol>
+<li><strong>The Search Agent:</strong> Watches for incoming initialized rows. It performs the vector query against the <code>document</code> <code>_</code> <code>chunks</code> table and loads relevant domain context onto the blackboard.</li>
+</ol>
+<ol>
+<li><strong>The Synthesizer Agent:</strong> Observes completed searches. It calls external LLMs to answer the prompt based purely on the loaded search data.</li>
+</ol>
+<ol>
+<li><strong>The Critic Agent:</strong> Evaluates the quality of the Synthesizer's output. If it detects halucinations or insufficient details, it rejects the answer, inserts feedback on the blackboard, and forces the Synthesizer to regenerate the response.</li>
+</ol>
+<h2 id="4-key-advanced-features" class="section-heading"><strong>4. Key Advanced Features</strong></h2>
+<p>The POC successfully proved out two massive enterprise scaling mechanics:</p>
+<h3 id="41-stateful-circuit-breaker" class="subsection-heading"><strong>4.1 Stateful Circuit Breaker</strong></h3>
+<p>To prevent runaway compute costs or API timeouts from locking up database sessions, a custom circuit breaker package was written.</p>
+<ul>
+<li>If external LLM integrations fail consecutively beyond a set threshold (e.g., 3 failures), the circuit trips to <code>OPEN</code> .</li>
+</ul>
+<ul>
+<li>Subsequent calls are automatically throttled and rejected at the DB level until a cooldown timeout expires, moving it back to <code>HALF-OPEN</code> or <code>CLOSED</code> .</li>
+</ul>
+<h3 id="42-asynchronous-true-autonomy-via-dbmsscheduler" class="subsection-heading"><strong>4.2 Asynchronous True Autonomy via DBMS_SCHEDULER</strong></h3>
+<p>To mirror external microservices, the agents were decoupled from continuous procedural execution. Standalone procedures were written and mapped to polling jobs running on a short interval via <code>DBMS</code> <code>_</code> <code>SCHEDULER</code> . Using native <code>FOR UPDATE SKIP LOCKED</code> logic, multiple parallel jobs can scale horizontally to handle heavy message queues without causing deadlocks.</p>
+<h2 id="5-successful-execution-evidence-results" class="section-heading"><strong>5. Successful Execution Evidence & Results</strong></h2>
+<p>The final verification test established full operational integrity.</p>
+<p>A query regarding JSON features was injected into the blackboard.</p>
+<ul>
+<li>The system executed the vector search correctly, processing a <code>CLOB</code> text pool and identifying relevant vectors.</li>
+</ul>
+<ul>
+<li>The synthesizer drafted an outline highlighting flexibility and agility in JSON.</li>
+</ul>
+<ul>
+<li>The critic approved the output without fault on that cycle, officially resolving the row state to <code>CRITIC</code> <code>_</code> <code>APPROVED</code> without leaving any error messages in the execution logs.</li>
+</ul>
+<h2 id="6-recommendations-next-steps" class="section-heading"><strong>6. Recommendations & Next Steps</strong></h2>
+<p>Based on the high performance of this POC, the following implementations are recommended for production environments:</p>
+<ul>
+<li><strong>APEX 24.2 Front-End Integration:</strong> Leverage a dynamic timer or polling action to reflect the blackboard status in real-time to end-users without page refreshes.</li>
+</ul>
+<ul>
+<li><strong>Vector Model Transition:</strong> Move to complete, in-database model storage via Oracle 23ai/26ai's onnx local model hosting to remove the internet API factor entirely.</li>
+</ul>
+      </section>
+
+      <!-- Source Visual Pages Gallery -->
+      
+<section style="margin-top:48px;" id="source-page-gallery">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+    <div>
+      <h2 class="section-heading" style="margin:0 0 6px 0;border:none;">
+        <span>🖼️</span>
+        <span>Original Source Document Visual Pages & Diagrams</span>
+      </h2>
+      <p style="margin:0;">High-resolution rendered visual pages from the authoritative source document (<code>Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database.pdf</code>). Click any page to inspect the original layout and diagrams.</p>
+    </div>
+    <a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database.pdf" target="_blank" rel="noopener noreferrer" class="hero-pdf-btn">
+      <span>📄 Open Complete PDF (4 Pages) ↗</span>
+    </a>
+  </div>
+  <div class="page-gallery">
+    
+<div class="page-card">
+  <a href="images/page_1.png" target="_blank" title="Click to view Page 1 full resolution">
+    <div class="page-thumb-wrap">
+      <img src="images/page_1.png" alt="Page 1 of Native Multi-Agent RAG Architecture" class="page-thumb" loading="lazy">
+    </div>
+    <div class="page-info-bar">
+      <span>Page 1 of 4</span>
+      <span style="color:var(--primary);">View Full Page ↗</span>
+    </div>
+  </a>
+</div>
+<div class="page-card">
+  <a href="images/page_2.png" target="_blank" title="Click to view Page 2 full resolution">
+    <div class="page-thumb-wrap">
+      <img src="images/page_2.png" alt="Page 2 of Native Multi-Agent RAG Architecture" class="page-thumb" loading="lazy">
+    </div>
+    <div class="page-info-bar">
+      <span>Page 2 of 4</span>
+      <span style="color:var(--primary);">View Full Page ↗</span>
+    </div>
+  </a>
+</div>
+<div class="page-card">
+  <a href="images/page_3.png" target="_blank" title="Click to view Page 3 full resolution">
+    <div class="page-thumb-wrap">
+      <img src="images/page_3.png" alt="Page 3 of Native Multi-Agent RAG Architecture" class="page-thumb" loading="lazy">
+    </div>
+    <div class="page-info-bar">
+      <span>Page 3 of 4</span>
+      <span style="color:var(--primary);">View Full Page ↗</span>
+    </div>
+  </a>
+</div>
+<div class="page-card">
+  <a href="images/page_4.png" target="_blank" title="Click to view Page 4 full resolution">
+    <div class="page-thumb-wrap">
+      <img src="images/page_4.png" alt="Page 4 of Native Multi-Agent RAG Architecture" class="page-thumb" loading="lazy">
+    </div>
+    <div class="page-info-bar">
+      <span>Page 4 of 4</span>
+      <span style="color:var(--primary);">View Full Page ↗</span>
+    </div>
+  </a>
+</div>
+  </div>
+</section>
+
+      <!-- Frequently Asked Questions -->
+      <section style="margin-top:48px;" id="frequently-asked-questions">
+        <h2 class="section-heading">
+          <span>❓</span>
+          <span>Frequently Asked Questions & Practical Scenarios</span>
+        </h2>
+        <p>Operational clarifications, design trade-offs, and architecture decisions related to this technical document.</p>
+        <div class="faq-list" style="margin-top:20px;">
+          
+<div class="faq-item open">
+  <button class="faq-header">
+    <span>How does the Blackboard pattern orchestrate agents inside Oracle Database?</span>
+    <span class="faq-icon">▼</span>
+  </button>
+  <div class="faq-body">
+    <p>The AGENT_BLACKBOARD table acts as the shared state store. Requests enter with an initialized status. Autonomous background agents continuously poll for actionable rows matching their specific agent stage, execute their logic, and advance the state column to trigger downstream agents.</p>
+  </div>
+</div>
+<div class="faq-item">
+  <button class="faq-header">
+    <span>How do background agents achieve autonomous execution without deadlocks?</span>
+    <span class="faq-icon">▼</span>
+  </button>
+  <div class="faq-body">
+    <p>Each agent runs as an independent DBMS_SCHEDULER job executing procedures with SELECT ... FOR UPDATE SKIP LOCKED. This enables multiple concurrent worker threads to claim and process separate blackboard rows simultaneously without lock contention.</p>
+  </div>
+</div>
+<div class="faq-item">
+  <button class="faq-header">
+    <span>What is the role of the Critic Agent?</span>
+    <span class="faq-icon">▼</span>
+  </button>
+  <div class="faq-body">
+    <p>The Critic Agent evaluates the Synthesizer Agent&#x27;s output against the source document chunks retrieved by the Search Agent. If it detects hallucinations, missing context, or low confidence, it rejects the draft, writes feedback onto the blackboard, and resets the status for regeneration.</p>
+  </div>
+</div>
+<div class="faq-item">
+  <button class="faq-header">
+    <span>How does the stateful Circuit Breaker protect the database from LLM outages?</span>
+    <span class="faq-icon">▼</span>
+  </button>
+  <div class="faq-body">
+    <p>If external API calls fail consecutively beyond a configured threshold (e.g. 3 failures), the circuit breaker transitions from CLOSED to OPEN, immediately failing subsequent requests at the database layer. After a cooldown window, it shifts to HALF-OPEN to safely test external connectivity.</p>
+  </div>
+</div>
+        </div>
+      </section>
+
+      <!-- Source Traceability & Metadata -->
+      <section style="margin-top:48px;" id="source-traceability">
+        <h2 class="section-heading">
+          <span>🔍</span>
+          <span>Source Traceability & Document Metadata</span>
+        </h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Metadata Property</th>
+                <th>Source Value</th>
+                <th>Traceability Scope</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Source Document</strong></td>
+                <td><code>Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database.pdf</code></td>
+                <td>Authoritative enterprise specification</td>
+              </tr>
+              <tr>
+                <td><strong>Source PDF Asset</strong></td>
+                <td><a href="Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database.pdf" target="_blank" style="color:var(--primary);font-weight:600;">Native Multi-Agent RAG Architecture with Stateful Circuit Breakers in Oracle Database.pdf ↗</a></td>
+                <td>Embedded original file available for direct verification</td>
+              </tr>
+              <tr>
+                <td><strong>Author / Engineering Lead</strong></td>
+                <td>Subrata Sarkar</td>
+                <td>Technical owner and implementation architect</td>
+              </tr>
+              <tr>
+                <td><strong>Lifecycle Status</strong></td>
+                <td>Technical Report</td>
+                <td>Approved for enterprise architecture</td>
+              </tr>
+              <tr>
+                <td><strong>Confidentiality Tier</strong></td>
+                <td>Technical Report</td>
+                <td>Internal engineering technical reference & architecture repository</td>
+              </tr>
+              <tr>
+                <td><strong>Total Source Pages</strong></td>
+                <td>4 Pages</td>
+                <td>100% coverage - zero omission, zero summarization</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Pagination Footer -->
+      <div class="doc-footer-nav">
+        <a href="../index.html" class="foot-btn">
+          <span class="foot-sub">Previous</span>
+          <span class="foot-title">← Enterprise Documentation Hub</span>
+        </a>
+        <a href="architecture.html" class="foot-btn" style="text-align:right;">
+          <span class="foot-sub">Next Topic</span>
+          <span class="foot-title">Architecture & Data Models →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  
+<aside class="toc-sidebar">
+  <div class="toc-title">On This Page</div>
+  <ul class="toc-list"><li><a href="#-technical-report" class="toc-link" >📄 TECHNICAL REPORT</a></li><li><a href="#1-executive-summary" class="toc-link" >1. Executive Summary</a></li><li><a href="#2-problem-statement" class="toc-link" >2. Problem Statement</a></li><li><a href="#3-system-architecture-methodology" class="toc-link" >3. System Architecture &amp; Methodology</a></li><li><a href="#31-the-blackboard-design-pattern" class="toc-link" style="padding-left:16px;font-size:12px;">3.1 The &quot;Blackboard&quot; Design Pattern</a></li><li><a href="#32-implemented-agents" class="toc-link" style="padding-left:16px;font-size:12px;">3.2 Implemented Agents</a></li><li><a href="#4-key-advanced-features" class="toc-link" >4. Key Advanced Features</a></li><li><a href="#41-stateful-circuit-breaker" class="toc-link" style="padding-left:16px;font-size:12px;">4.1 Stateful Circuit Breaker</a></li><li><a href="#42-asynchronous-true-autonomy-via-dbmsscheduler" class="toc-link" style="padding-left:16px;font-size:12px;">4.2 Asynchronous True Autonomy via DBMSSCHEDULER</a></li><li><a href="#5-successful-execution-evidence-results" class="toc-link" >5. Successful Execution Evidence &amp; Results</a></li><li><a href="#6-recommendations-next-steps" class="toc-link" >6. Recommendations &amp; Next Steps</a></li>
+    <li><a href="#source-page-gallery" class="toc-link">Source Page Views</a></li>
+    <li><a href="#frequently-asked-questions" class="toc-link">FAQs & Scenarios</a></li>
+    <li><a href="#source-traceability" class="toc-link">Source Metadata</a></li>
+  </ul>
+</aside>
+</div>
+
+
+<div class="search-modal" id="search-modal">
+  <div class="search-dialog">
+    <div class="search-bar-wrap">
+      <span>🔍</span>
+      <input type="text" class="search-input" id="modal-search-input" placeholder="Search this guide by keyword, code, or topic...">
+      <button class="kbd-shortcut" onclick="document.getElementById('search-modal').classList.remove('open')">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<script src="js/search-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
