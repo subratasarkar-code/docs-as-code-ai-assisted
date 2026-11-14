@@ -304,6 +304,15 @@ body {
   color: var(--primary);
 }
 
+.hub-search-results { margin-top: 14px; display: grid; gap: 8px; }
+.hub-search-results:empty { display: none; }
+.hub-search-results-title { color: var(--text-main); font-weight: 700; font-size: 14px; }
+.hub-search-result { display: grid; gap: 5px; padding: 11px 13px; border: 1px solid var(--border-color); border-radius: 7px; background: var(--bg-surface); color: var(--text-muted); text-decoration: none; }
+.hub-search-result:hover, .hub-search-result:focus-visible { border-color: var(--primary); outline: none; }
+.hub-search-result strong { color: var(--text-main); }
+.hub-search-result mark { background: #ffe2ce; color: inherit; }
+.hub-search-empty { margin: 0; padding: 12px; color: var(--text-muted); }
+
 /* Main Hub Content */
 .hub-main {
   max-width: 1400px;

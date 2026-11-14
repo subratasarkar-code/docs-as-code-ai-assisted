@@ -295,7 +295,7 @@ END;</code></pre>
   <div class="search-dialog">
     <div class="search-bar-wrap">
       <span>🔍</span>
-      <input type="text" class="search-input" id="modal-search-input" placeholder="Search this guide by keyword, code, or topic...">
+      <input type="text" class="search-input" id="modal-search-input" placeholder="Ask a question or describe what you need..." aria-label="Search this guide using natural language">
       <button class="kbd-shortcut" onclick="document.getElementById('search-modal').classList.remove('open')">ESC</button>
     </div>
     <div class="search-results" id="search-results"></div>
@@ -303,6 +303,8 @@ END;</code></pre>
 </div>
 
 <script src="js/search-data.js"></script>
+<script src="js/bm25.js"></script>
+<script>window.DOC_BM25_ENGINE = new BM25Engine(window.DOC_PASSAGES || []);</script>
 <script src="js/app.js"></script>
 </body>
 </html>

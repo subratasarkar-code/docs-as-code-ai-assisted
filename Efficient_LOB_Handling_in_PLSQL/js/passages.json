@@ -1,0 +1,123 @@
+[
+  {
+    "id": "lob-handling-passage-0001",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "Overview",
+    "category": "Source section",
+    "url": "index.html#overview",
+    "text": "ORACLE DATABASE OPTIMIZATION GUIDE",
+    "word_count": 4
+  },
+  {
+    "id": "lob-handling-passage-0002",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "**Efficient LOB Handling in PL/SQL**",
+    "category": "Source section",
+    "url": "index.html#efficient-lob-handling-in-plsql",
+    "text": "PGA Memory Management • Piecewise Processing • SecureFiles • Parameter Passing Efficiently managing Large Objects (CLOB, NCLOB, BLOB) in PL/SQL requires controlling PGA (Program Global Area) memory allocation , utilizing piecewise chunk operations , and preventing memory leaks caused by temporary LOB locators.",
+    "word_count": 43
+  },
+  {
+    "id": "lob-handling-passage-0003",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "**<mark>1. Fast Reference Matrix</mark>**",
+    "category": "Source section",
+    "url": "index.html#1-fast-reference-matrix",
+    "text": "| GOAL / SCENARIO | RECOMMENDED APPROACH | KEY PERFORMANCE ADVANTAGE | |---|---|---| | Reading Large LOBs |Piecewise reading via DBMS LOB.READ |Prevents PGA memory spikes by streaming data in controlled buffer chunks.| | Building / Appending LOBs | DBMS LOB.WRITEAPPEND / APPEND |Up to 100x faster than string concatenation operators ( || ) inside loops.| | Temporary LOB Cleanup | DBMS LOB.FREETEMPORARY |Eliminates severe PGA session memory leaks and temp tablespace bloat.| | Subprogram Parameter Passing | IN OUT NOCOPY hint|Passes LOB locators by reference rather than creating expensive memory copies.| | Physical Storage Strategy |SecureFiles over BasicFiles|Enables inline storage, high-level compression, deduplication, and encryption.|",
+    "word_count": 106
+  },
+  {
+    "id": "lob-handling-passage-0004",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "**Technique A: Avoid String Concatenation Operator (||) in Loops**",
+    "category": "Source section",
+    "url": "index.html#technique-a-avoid-string-concatenation-operator-in-loops",
+    "text": "Using v clob := v clob || v str in loops causes Oracle to continually allocate and destroy intermediate temporary LOB locators. Use DBMS LOB.WRITEAPPEND instead. Oracle Database Performance Reference Guide Page 1 of 3",
+    "word_count": 35
+  },
+  {
+    "id": "lob-handling-passage-0005",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "**Technique B: Chunked / Piecewise Reading**",
+    "category": "Source section",
+    "url": "index.html#technique-b-chunked-piecewise-reading",
+    "text": "To process or stream multi-gigabyte LOBs (e.g., REST endpoints, socket streams), read the payload in 32 KB chunks rather than fetching the whole LOB into memory at once.",
+    "word_count": 28
+  },
+  {
+    "id": "lob-handling-passage-0006",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "**Technique C: Parameter Passing via NOCOPY**",
+    "category": "Source section",
+    "url": "index.html#technique-c-parameter-passing-via-nocopy",
+    "text": "By default, IN OUT parameters pass by value, creating deep copies of LOB locators. Use IN OUT NOCOPY to pass by reference for zero memory overhead.",
+    "word_count": 26
+  },
+  {
+    "id": "lob-handling-passage-0007",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "**<mark>3. Physical Storage Level Optimization (SecureFiles)</mark>**",
+    "category": "Source section",
+    "url": "index.html#3-physical-storage-level-optimization-securefiles",
+    "text": "Ensure tables with LOB columns use SecureFiles storage parameters to maximize compression, deduplication, and row-level storage efficiency: Oracle Database Performance Reference Guide Page 2 of 3 Key Rules for Production Systems - Always call FREETEMPORARY: Include DBMS LOB.FREETEMPORARY in both normal execution paths and EXCEPTION handlers. - Use CALL Duration: Initialize temporary LOBs with DBMS LOB.CALL duration so memory is released automatically upon call completion. - Enable Storage in Row: Keep ENABLE STORAGE IN ROW active so LOBs under 4 KB avoid extra disk round-trips to LOB segments. Oracle Database Performance Reference Guide Page 3 of 3",
+    "word_count": 97
+  },
+  {
+    "id": "lob-handling-passage-0008",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "FAQ: Why does string concatenation (||) inside loops cause severe PGA memory exhaustion?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: Why does string concatenation (||) inside loops cause severe PGA memory exhaustion? Answer: The concatenation operator (||) creates an intermediate temporary LOB locator on every single iteration. Inside a loop of thousands of cycles, Oracle continuously allocates and destroys locators, leading to severe PGA memory bloat and temp tablespace thrashing. Using DBMS LOB.WRITEAPPEND modifies the LOB buffer in-place with zero intermediate locators.",
+    "word_count": 63
+  },
+  {
+    "id": "lob-handling-passage-0009",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "FAQ: What is the optimal chunk size when performing piecewise LOB reading?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: What is the optimal chunk size when performing piecewise LOB reading? Answer: 32,767 bytes (32 KB) is the maximum single buffer allocation size for VARCHAR2/RAW in PL/SQL. Reading in 32 KB chunks via DBMS LOB.READ maintains a tightly bounded PGA memory footprint regardless of whether the source LOB is 50 MB or 10 GB.",
+    "word_count": 55
+  },
+  {
+    "id": "lob-handling-passage-0010",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "FAQ: Why must LOB parameters be passed using the NOCOPY hint?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: Why must LOB parameters be passed using the NOCOPY hint? Answer: By default, PL/SQL passes IN OUT parameters by value, creating a complete local copy of the parameter upon procedure entry. The IN OUT NOCOPY hint instructs the PL/SQL compiler to pass the LOB locator by reference, eliminating memory copies and reducing call overhead to zero.",
+    "word_count": 57
+  },
+  {
+    "id": "lob-handling-passage-0011",
+    "doc_id": "lob-handling",
+    "doc_name": "Efficient_LOB_Handling_in_PLSQL",
+    "doc_title": "Efficient LOB Handling in PL/SQL",
+    "section_title": "FAQ: What are the advantages of SecureFiles over legacy BasicFiles?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: What are the advantages of SecureFiles over legacy BasicFiles? Answer: SecureFiles enables inline storage for payloads under 4 KB (ENABLE STORAGE IN ROW), advanced block-level compression (COMPRESS HIGH), automatic hash-based deduplication (DEDUPLICATE), and SGA buffer cache retention (CACHE).",
+    "word_count": 39
+  }
+]

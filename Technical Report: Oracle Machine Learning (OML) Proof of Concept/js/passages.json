@@ -1,0 +1,156 @@
+[
+  {
+    "id": "oml-poc-passage-0001",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "**Technical Report: Oracle Machine Learning (OML) Proof of Concept**",
+    "category": "Source section",
+    "url": "index.html#technical-report-oracle-machine-learning-oml-proof-of-concept",
+    "text": "Project: Claim Denial Predictive Modeling Environment: RXH DEV / RXH CUSTOM Algorithm: Generalized Linear Model (GLM) Classification",
+    "word_count": 17
+  },
+  {
+    "id": "oml-poc-passage-0002",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "**1. Executive Summary**",
+    "category": "Source section",
+    "url": "index.html#1-executive-summary",
+    "text": "This report outlines the technical workflow and database architecture implemented for the Oracle Machine Learning (OML) Proof of Concept (POC). The goal of this POC is to build, train, and evaluate an in-database binary classification model to predict healthcare claim denials (CLAIM DENIAL GLM). By leveraging Oracle's native DBMS DATA MINING package, data preparation, model training, and scoring are executed entirely within the database layer, maximizing performance and eliminating the need for data egress.",
+    "word_count": 74
+  },
+  {
+    "id": "oml-poc-passage-0003",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "**2. Data Engineering & Feature Pipeline**",
+    "category": "Source section",
+    "url": "index.html#2-data-engineering-feature-pipeline",
+    "text": "The pipeline begins by engineering a unified feature set from the core transaction table RXH CUSTOM.rxc claim.",
+    "word_count": 17
+  },
+  {
+    "id": "oml-poc-passage-0004",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "**Feature Selection & Transformation (rxc_claim_features_v)**",
+    "category": "Source section",
+    "url": "index.html#feature-selection-transformation-rxcclaimfeaturesv",
+    "text": "A source view was created to isolate relevant attributes, normalize strings, handle null values, and map the target class. - Target Variable Mapping: The model trains on a binary target column, denial label, derived from the ingestion status (ic status) : - 'Y' (Denied) if status is 'IHUB REJECTED'. - 'N' (Accepted/Default) if status is 'IHUB ACCEPTED' or any unknown status. - Financial Features: Numerical values are scrubbed using NVL transformations to avoid missing values: total invoice charges, total amount paid, and balance due. - Demographic & Categorical Features: Text fields are standardized to uppercase to guarantee consistency across categorical dimensions (such as patient sex, patient state, payer type, and icd version). - Flag Indicators: Complex conditional logic consolidates various database flags into clean, binary numeric inputs (1 or 0) for the algorithm : - accident flag: Combined from auto and miscellaneous accident indicators. - other ins flag: Triggered if secondary policy numbers or secondary benefit plan flags exist. - pregnancy flag & error flag num: Standardized boolean flags.",
+    "word_count": 169
+  },
+  {
+    "id": "oml-poc-passage-0005",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "**Dataset Split & Materialization (claims_ml_data)**",
+    "category": "Source section",
+    "url": "index.html#dataset-split-materialization-claimsmldata",
+    "text": "To preserve consistency across training and testing phases, the view is materialized into a physical table. A random splitting strategy is applied using DBMS RANDOM.VALUE() to segment the data : - Train Set (TRAIN): Approximately 80% of the data. - Test Set (TEST): Approximately 20% of the data. A downstream view, claims ml train v, filters exclusively for the TRAIN partition to supply data to the training algorithm.",
+    "word_count": 68
+  },
+  {
+    "id": "oml-poc-passage-0006",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "**Hyperparameter & Algorithm Settings**",
+    "category": "Source section",
+    "url": "index.html#hyperparameter-algorithm-settings",
+    "text": "Model configurations are managed via a dedicated settings table, RXH DEV.GLM CLAIM SETTINGS |Setting Name (Oracle Constant)|Configured Value|Context / Purpose| |---|---|---| |DBMS DATA MINING.ALGO NAME|DBMS DATA MINING.ALGO GENERALIZED LINEAR M ODEL|Specifies the GLM algorithm for classification.| |DBMS DATA MINING.PREP AUTO|DBMS DATA MINING.PREP AUTO ON|Enables Oracle's Automatic Data Preparation (ADP) to handle missing values and normalization automatically.|",
+    "word_count": 56
+  },
+  {
+    "id": "oml-poc-passage-0007",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "**Model Compilation**",
+    "category": "Source section",
+    "url": "index.html#model-compilation",
+    "text": "The model compilation is driven by the DBMS DATA MINING.CREATE MODEL procedure : Note: The block incorporates robust PL/SQL exception handling to isolate pipeline runtime failures during compilation.",
+    "word_count": 28
+  },
+  {
+    "id": "oml-poc-passage-0008",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "**Scoring View (claims_ml_test_scores_v)**",
+    "category": "Source section",
+    "url": "index.html#scoring-view-claimsmltestscoresv",
+    "text": "Inference is performed dynamically on the holdout TEST dataset using native OML SQL analytical functions. This step bypasses external prediction runtimes and scores records directly inside database memory. The inference view generates three core evaluation columns : 1. pred label: The hard binary classification prediction (Y or N) using PREDICTION(). 2. prob denied: The calculated probability that the claim will be denied using PREDICTION PROBABILITY(). 3. prob accepted: The calculated probability that the claim will be accepted.",
+    "word_count": 77
+  },
+  {
+    "id": "oml-poc-passage-0009",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "**Analytics and Validation Metrics**",
+    "category": "Source section",
+    "url": "index.html#analytics-and-validation-metrics",
+    "text": "The proof of concept script establishes two direct methods for analyzing model performance on unseen data : - Confusion Matrix Analysis: Grouping actual versus predicted labels to calculate True Positives, False Positives, True Negatives, and False Negatives [cite: 14]. SELECT actual label, pred label, COUNT( ) AS n FROM rxh dev.claims ml test scores v GROUP BY actual label, pred label ORDER BY actual label, pred label; - Overall Accuracy: Formulated via SQL to establish the baseline correctness rati SELECT ROUND( SUM(CASE WHEN actual label = pred label THEN 1 ELSE 0 END) / COUNT( ), 4 ) AS accuracy FROM rxh dev.claims ml test scores v;",
+    "word_count": 107
+  },
+  {
+    "id": "oml-poc-passage-0010",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "**5. Next Steps & Recommendations**",
+    "category": "Source section",
+    "url": "index.html#5-next-steps-recommendations",
+    "text": "1. Hyperparameter Tuning: Evaluate hyperparameter configurations within GLM CLAIM SETTINGS (e.g., explicitly enforcing BINOMIAL family or LOGIT link functions) to contrast baseline performance. 2. Feature Expansion: Re-integrate commented date parameters (invoice complete date, ic status date) using proper time-delta transformations to calculate duration metrics. 3. Alternative Classifiers: Utilize the established framework to construct alternative algorithms (such as Random Forest or Naive Bayes) by swapping settings parameters to perform a model comparison audit.",
+    "word_count": 72
+  },
+  {
+    "id": "oml-poc-passage-0011",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "FAQ: What is the major architectural advantage of Oracle Machine Learning (OML)?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: What is the major architectural advantage of Oracle Machine Learning (OML)? Answer: OML executes machine learning algorithms directly inside the database kernel. It completely eliminates data egress to external Python servers or clusters, honors all database security policies, and allows predictions to be generated directly inside SQL views.",
+    "word_count": 49
+  },
+  {
+    "id": "oml-poc-passage-0012",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "FAQ: How is the dataset partitioned into Train and Test sets?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: How is the dataset partitioned into Train and Test sets? Answer: Using DBMS RANDOM.VALUE() inside a view or CTAS query: records with random values 0.8 are assigned to the 'TEST' partition (~20%).",
+    "word_count": 33
+  },
+  {
+    "id": "oml-poc-passage-0013",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "FAQ: How are predictions executed in real-time within SQL queries?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: How are predictions executed in real-time within SQL queries? Answer: Using native SQL analytical functions: PREDICTION(CLAIM DENIAL GLM USING ) returns the predicted binary label ('Y'/'N'), and PREDICTION PROBABILITY(CLAIM DENIAL GLM, 'Y' USING ) returns the exact confidence score.",
+    "word_count": 40
+  },
+  {
+    "id": "oml-poc-passage-0014",
+    "doc_id": "oml-poc",
+    "doc_name": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "doc_title": "Technical Report: Oracle Machine Learning (OML) Proof of Concept",
+    "section_title": "FAQ: What model settings were configured in GLM_CLAIM_SETTINGS?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: What model settings were configured in GLM CLAIM SETTINGS? Answer: ALGO NAME was set to ALGO GENERALIZED LINEAR MODEL, and PREP AUTO was set to PREP AUTO ON to enable automatic data preparation for missing values and normalization.",
+    "word_count": 39
+  }
+]

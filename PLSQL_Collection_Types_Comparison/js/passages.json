@@ -1,0 +1,145 @@
+[
+  {
+    "id": "plsql-collections-passage-0001",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "Overview",
+    "category": "Source section",
+    "url": "index.html#overview",
+    "text": "ORACLE DATABASE PROGRAMMING ARCHITECTURE",
+    "word_count": 4
+  },
+  {
+    "id": "plsql-collections-passage-0002",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "**PL/SQL Collection Types Comparison**",
+    "category": "Source section",
+    "url": "index.html#plsql-collection-types-comparison",
+    "text": "Associative Arrays • Varrays • Nested Tables In PL/SQL, Associative Arrays , Varrays (Variable-Size Arrays), and Nested Tables are the three primary collection structures used to manage composite data. While all three store ordered elements of the same datatype, they differ fundamentally in persistence , indexing capabilities , memory layout , and SQL integration .",
+    "word_count": 55
+  },
+  {
+    "id": "plsql-collections-passage-0003",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "**1. Quick Feature Comparison Matrix**",
+    "category": "Source section",
+    "url": "index.html#1-quick-feature-comparison-matrix",
+    "text": "| FEATURE | ASSOCIATIVE ARRAY | VARRAY | NESTED TABLE | |---|---|---|---| | Primary Purpose |In-memory lookup tables, key-value caching|Fixed-size ordered sets (e.g., top contacts)|Dynamic sets, DB column storage, set operations| | Database Storage | NO (PL/SQL Memory Only)| YES (Inlined RAW or LOB)| YES (Out-of-line Child Table)| | Maximum Bounds |Dynamic (2 31 - 1 elements)| Fixed limit set at creation|Unbounded (Dynamic)| | Indexing Mechanism | PLS INTEGER or VARCHAR2 |Sequential Integer ( 1..N )|Sequential Integer ( 1..N )| | Sparseness | Sparse (non-sequential keys)| Dense (strict order)|Starts Dense ; can become Sparse | | Constructor / Initialization |Automatic (No constructor/ EXTEND)|Requires NEW & EXTEND |Requires NEW & EXTEND | | SQL Engine Integration |PL/SQL context only|Queryable/storable via SQL|Full SQL support ( MULTISET , MEMBER OF )|",
+    "word_count": 128
+  },
+  {
+    "id": "plsql-collections-passage-0004",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "**A. Associative Arrays (Index-By Tables)**",
+    "category": "Source section",
+    "url": "index.html#a-associative-arrays-index-by-tables",
+    "text": "Associative arrays are purely temporary, in-memory structures built for high-performance lookup tables during procedure or package execution. • Strengths: Dynamic sizing without requiring initialization constructors or EXTEND calls. Supports string keys (e.g., indexing by employee ID or GUID). - Limitations: Cannot be defined as database schema objects or stored inside database table columns. -",
+    "word_count": 54
+  },
+  {
+    "id": "plsql-collections-passage-0005",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "**`DECLARE`**",
+    "category": "Source section",
+    "url": "index.html#declare",
+    "text": "PL/SQL Architecture Reference Guide Page 1 of 3",
+    "word_count": 8
+  },
+  {
+    "id": "plsql-collections-passage-0006",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "**B. Varrays (Variable-Size Arrays)**",
+    "category": "Source section",
+    "url": "index.html#b-varrays-variable-size-arrays",
+    "text": "Varrays are ordered collections designed for scenarios where the maximum number of items is strictly known ahead of time. - Strengths: Guarantees element order retention when persisted and retrieved from database columns. - Limitations: Fixed upper bound defined at declaration. Always strictly dense—intermediate elements cannot be deleted individually.",
+    "word_count": 48
+  },
+  {
+    "id": "plsql-collections-passage-0007",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "**C. Nested Tables**",
+    "category": "Source section",
+    "url": "index.html#c-nested-tables",
+    "text": "Nested tables model single-column relational tables within memory or column data, seamlessly blending PL/ SQL logic with SQL set operations. - Strengths: Unbounded dynamic growth. Native support for set operations (e.g., MULTISET UNION , MEMBER OF , CARDINALITY ). - Limitations: When stored in database columns, element order is not inherently preserved unless explicitly retrieved with an ORDER BY clause.",
+    "word_count": 60
+  },
+  {
+    "id": "plsql-collections-passage-0008",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "**`DECLARE`**",
+    "category": "Source section",
+    "url": "index.html#declare",
+    "text": "PL/SQL Architecture Reference Guide Page 2 of 3",
+    "word_count": 8
+  },
+  {
+    "id": "plsql-collections-passage-0009",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "**Architecture Decision Tree**",
+    "category": "Source section",
+    "url": "index.html#architecture-decision-tree",
+    "text": "- Use Associative Arrays when: Building fast internal caching mechanisms, key-value mapping (e.g., indexing by VARCHAR2 keys), or temporary logic within PL/SQL procedures. - Use Varrays when: Storing fixed small collections where insertion order must be strictly preserved on disk (e.g., historical audit logs, up to 5 contact numbers per user). - Use Nested Tables when: Manipulating dynamic, unbounded datasets, performing high-level SQL set manipulations, or storing child collections directly within database table columns. PL/SQL Architecture Reference Guide Page 3 of 3",
+    "word_count": 82
+  },
+  {
+    "id": "plsql-collections-passage-0010",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "FAQ: What is the primary difference between Associative Arrays, Varrays, and Nested Tables?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: What is the primary difference between Associative Arrays, Varrays, and Nested Tables? Answer: Associative Arrays are unbounded, PL/SQL-only memory tables indexed by integers or VARCHAR2 strings. Varrays have a declared maximum size and preserve ordered sequences on disk. Nested Tables are unbounded collections that can be stored in database columns and support native SQL set operators.",
+    "word_count": 57
+  },
+  {
+    "id": "plsql-collections-passage-0011",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "FAQ: Which collection type supports VARCHAR2 string keys for key-value caching?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: Which collection type supports VARCHAR2 string keys for key-value caching? Answer: Associative Arrays (INDEX BY VARCHAR2). They provide instant dictionary-style lookups without iterating over elements.",
+    "word_count": 26
+  },
+  {
+    "id": "plsql-collections-passage-0012",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "FAQ: Why can't Associative Arrays be stored directly in database table columns?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: Why can't Associative Arrays be stored directly in database table columns? Answer: Associative Arrays are defined purely within the PL/SQL engine and lack SQL-level schema type definitions (CREATE TYPE). Only schema-level Varrays and Nested Tables can be used as column datatypes.",
+    "word_count": 42
+  },
+  {
+    "id": "plsql-collections-passage-0013",
+    "doc_id": "plsql-collections",
+    "doc_name": "PLSQL_Collection_Types_Comparison",
+    "doc_title": "PL/SQL Collection Types Comparison",
+    "section_title": "FAQ: What SQL set operations are supported by Nested Tables?",
+    "category": "FAQ",
+    "url": "faq.html",
+    "text": "Question: What SQL set operations are supported by Nested Tables? Answer: Nested Tables natively support MULTISET UNION, MULTISET INTERSECT, MULTISET EXCEPT, MEMBER OF, SUBMULTISET OF, and CARDINALITY.",
+    "word_count": 27
+  }
+]

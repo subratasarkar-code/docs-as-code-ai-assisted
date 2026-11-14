@@ -1,8 +1,12 @@
 // Enterprise Documentation Interactions
 (function() {
   const themeToggle = document.getElementById('theme-toggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const savedTheme = localStorage.getItem('tech-portal-theme');
+  let prefersDark = false;
+  let savedTheme = null;
+  try {
+    prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    savedTheme = localStorage.getItem('tech-portal-theme');
+  } catch (e) { /* File origins can restrict storage; search must still work. */ }
 
   if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
     document.body.classList.add('dark-theme');
@@ -12,7 +16,7 @@
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-theme');
       const isDark = document.body.classList.contains('dark-theme');
-      localStorage.setItem('tech-portal-theme', isDark ? 'dark' : 'light');
+      try { localStorage.setItem('tech-portal-theme', isDark ? 'dark' : 'light'); } catch (e) {}
     });
   }
 
@@ -69,30 +73,26 @@
 
   function renderSearchResults(query) {
     if (!searchResults) return;
-    const q = query.trim().toLowerCase();
-    const index = window.DOC_SEARCH_INDEX || [];
+    const q = query.trim();
     if (!q) {
-      searchResults.innerHTML = '<div style="padding:16px;text-align:center;color:var(--text-light);font-size:13px;">Type keywords or topic titles to search this document...</div>';
+      searchResults.innerHTML = '<div style="padding:16px;text-align:center;color:var(--text-light);font-size:13px;">Ask a question or describe the information you need...</div>';
       return;
     }
-
-    const matches = index.filter(item => {
-      return item.title.toLowerCase().includes(q) || 
-             (item.snippet && item.snippet.toLowerCase().includes(q)) ||
-             (item.keywords && item.keywords.some(k => k.toLowerCase().includes(q)));
-    }).slice(0, 8);
+    const engine = window.DOC_BM25_ENGINE;
+    const matches = engine ? engine.search(q, {topK: 8}) : [];
 
     if (matches.length === 0) {
-      searchResults.innerHTML = '<div style="padding:16px;text-align:center;color:var(--text-light);font-size:13px;">No matching sections found for "' + htmlEscape(q) + '"</div>';
+      searchResults.innerHTML = '<div style="padding:16px;text-align:center;color:var(--text-light);font-size:13px;">No relevant passages found for "' + htmlEscape(q) + '"</div>';
       return;
     }
 
     let out = '';
-    matches.forEach(m => {
+    matches.forEach(result => {
+      const m = result.passage;
       out += `
         <a href="${m.url}" class="search-result-item" onclick="document.getElementById('search-modal').classList.remove('open')">
-          <div class="search-res-title">${htmlEscape(m.title)}</div>
-          <div class="search-res-snippet">${htmlEscape(m.snippet || '')}...</div>
+          <div class="search-res-title">${htmlEscape(m.section_title)}</div>
+          <div class="search-res-snippet">${result.snippet}</div>
         </a>
       `;
     });
